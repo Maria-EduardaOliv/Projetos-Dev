@@ -1,0 +1,635 @@
+/* RESET E CONFIGURAÇÕES GLOBAIS */
+html,
+body {
+    margin: 0;
+    /* Remove margens externas padrão */
+    padding: 0;
+    /* Remove preenchimento interno padrão */
+    height: 100%;
+    /* Garante que o html e o body ocupem 100% da altura da tela */
+}
+
+body {
+    background-color: #F8FFFF;
+    /* Cor de fundo da página */
+    display: flex;
+    /* Ativa o Flexbox para o body */
+    flex-direction: column;
+    /* Organiza os filhos diretos (header, main, footer) em uma coluna */
+}
+
+main {
+    flex-grow: 1;
+    /* Faz o conteúdo principal (main) crescer e ocupar todo o espaço vertical disponível, empurrando o rodapé para baixo */
+    padding: 0px;
+    /* Remove qualquer preenchimento do main */
+    line-height: 1.6;
+    /* Define a altura da linha para o texto, melhorando a legibilidade */
+}
+
+
+/* CABEÇALHO */
+header {
+    position: relative;
+    /* Define um contexto de posicionamento para elementos filhos */
+    background-color: #91D1DC;
+    /* Cor de fundo */
+}
+
+.cabeçalho {
+    position: relative;
+    /* Permite posicionar elementos filhos de forma absoluta */
+    height: 100px;
+    /* Define a altura do cabeçalho */
+    background-color: #91D1DC;
+    /* Cor de fundo do cabeçalho */
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: center;
+    /* Centraliza o conteúdo (logo) na horizontal */
+    align-items: center;
+    /* Centraliza o conteúdo na vertical */
+}
+
+.logo {
+    max-height: 70px;
+    /* Limita a altura máxima da logo */
+    width: 70px;
+    /* Define a largura da logo */
+}
+
+.icone-menu,
+.perfil {
+    position: absolute;
+    /* Posicionamento absoluto em relação ao '.cabeçalho' */
+    bottom: 10px;
+    /* Distância da base do cabeçalho */
+}
+
+.icone-menu {
+    left: 50px;
+    /* Posiciona no canto inferior esquerdo */
+}
+
+.perfil {
+    right: 50px;
+    /* Posiciona no canto inferior direito */
+}
+
+.icone-menu img,
+.perfil img {
+    height: 65px;
+    /* Altura das imagens dos ícones */
+    width: auto;
+    /* Largura automática para manter a proporção */
+    object-fit: contain;
+    /* Garante que a imagem inteira apareça sem distorção */
+}
+
+/* MENU SIDEBAR */
+.sidebar {
+    position: fixed;
+    /* Fixa o menu na tela, mesmo com a rolagem */
+    top: 0;
+    /* Alinha no topo */
+    left: 0;
+    /* Alinha à esquerda */
+    width: 220px;
+    /* Largura do menu */
+    height: 100%;
+    /* Altura total da tela */
+    background-color: #A4D9E5;
+    /* Cor de fundo do menu */
+    padding-top: 20px;
+    /* Espaço no topo do menu */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    /* Sombra na lateral direita para dar profundidade */
+    transition: transform 0.3s ease;
+    /* Animação suave para o efeito de mostrar/esconder */
+    z-index: 999;
+    /* Garante que o menu fique sobre os outros elementos da página */
+}
+
+.sidebar.oculto {
+    transform: translateX(-100%);
+    /* Move o menu para a esquerda para fora da tela, escondendo-o */
+}
+
+.logo-sidebar {
+    text-align: center;
+    /* Centraliza o conteúdo do menu */
+    margin-bottom: 20px;
+    /* Espaço abaixo da logo */
+    padding: 10px;
+    /* Preenchimento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+}
+
+h2 {
+    font-family: "Montserrat", sans-serif;
+    /* Fonte para o título */
+    color: #ffffff;
+    /* Cor do texto */
+    font-size: 26px;
+    /* Tamanho da fonte */
+}
+
+.sidebar ul {
+    list-style: none;
+    /* Remove os marcadores (bolinhas) da lista */
+    padding: 0;
+    /* Remove o preenchimento da lista */
+    margin: 0;
+    /* Remove a margem da lista */
+}
+
+.sidebar li {
+    padding: 12px 16px;
+    /* Preenchimento dos itens da lista */
+    display: flex;
+    /* Ativa o Flexbox */
+    align-items: center;
+    /* Alinha verticalmente o conteúdo do item */
+}
+
+.sidebar li a {
+    color: #000;
+    /* Cor do texto do link */
+    text-decoration: none;
+    /* Remove o sublinhado */
+    display: flex;
+    /* Ativa o Flexbox para o link */
+    align-items: center;
+    /* Alinha o ícone e o texto dentro do link */
+    gap: 10px;
+    /* Espaço entre o ícone e o texto */
+    width: 100%;
+    /* Faz o link ocupar toda a largura do 'li' */
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte */
+}
+
+.sidebar li a:hover {
+    background-color: #C5E8EE;
+    /* Cor de fundo ao passar o mouse */
+    border-radius: 5px;
+    /* Bordas arredondadas no hover */
+}
+
+.sidebar li img {
+    height: 30px;
+    /* Altura dos ícones */
+    width: 30px;
+    /* Largura dos ícones */
+    border-radius: 5px;
+    /* Bordas arredondadas para os ícones */
+}
+
+/* CORPO DA PÁGINA */
+/* BARRA DE BUSCA */
+.barraDeBusca {
+    background-color: #DEF3F6;
+    /* Cor de fundo da barra */
+    border: solid 3px #92D0DB;
+    /* Borda azul */
+    border-radius: 50px;
+    /* Bordas totalmente arredondadas */
+    width: 600px;
+    /* Largura da barra */
+    margin-top: 40px;
+    /* Margem no topo */
+    margin-bottom: 10px;
+    /* Margem na base */
+    display: flex;
+    /* Ativa Flexbox para alinhar ícone e campo de texto */
+    align-items: center;
+    /* Alinha verticalmente os itens internos */
+}
+
+.barraDeBusca img {
+    width: 30px;
+    /* Largura do ícone de lupa */
+    padding: 5px;
+    /* Preenchimento do ícone */
+    float: left;
+    /* Alinha o ícone à esquerda (alternativa ao Flexbox) */
+}
+
+.barraDeBusca input:focus {
+    outline: none;
+    /* Remove a borda azul que aparece ao clicar no campo de texto */
+}
+
+.textoDaBarra {
+    float: left;
+    /* Alinha o texto à esquerda */
+    background-color: transparent;
+    /* Fundo transparente */
+    padding-left: 5px;
+    /* Espaço à esquerda do texto */
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte */
+    font-size: 18px;
+    /* Tamanho da fonte */
+    border: none;
+    /* Remove a borda do campo de input */
+    height: 32px;
+    /* Altura do campo */
+    width: 260px;
+    /* Largura do campo */
+}
+
+.centraliza {
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: center;
+    /* Centraliza os itens horizontalmente */
+    gap: 50px;
+    /* Espaço entre os itens */
+    margin-bottom: 50px;
+    /* Margem na base */
+    margin-top: 20px;
+    /* Margem no topo */
+    flex-wrap: wrap;
+    /* Permite que os itens quebrem para a linha de baixo em telas menores */
+}
+
+/* TÍTULO E BOTÃO */
+.titulo {
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: space-between;
+    /* Coloca o título de um lado e o botão do outro */
+    font-family: "Montserrat", sans-serif;
+    /* Define a fonte */
+    font-optical-sizing: auto;
+    /* Otimização da renderização da fonte */
+    margin-top: 2%;
+    /* Margem superior */
+    margin-bottom: 2%;
+    /* Margem inferior */
+    margin-left: 5%;
+    /* Margem esquerda */
+    margin-right: 5%;
+    /* Margem direita */
+}
+
+.botao-apagarLista {
+    margin: 0.9rem;
+    /* Margem externa */
+    background-color: #91D1DC;
+    /* Cor de fundo do botão */
+    color: white;
+    /* Cor do texto */
+    border: none;
+    /* Sem borda */
+    border-radius: 40px;
+    /* Bordas bem arredondadas */
+    cursor: pointer;
+    /* Mostra o cursor de mãozinha */
+    font-size: 20px;
+    /* Tamanho da fonte */
+    transition: background-color 0.3s ease;
+    /* Animação suave na cor de fundo */
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte */
+    font-weight: bold;
+    /* Texto em negrito */
+    display: flex;
+    /* Ativa Flexbox para alinhar texto e imagem */
+    align-items: center;
+    /* Alinha verticalmente */
+    gap: 8px;
+    /* Espaço entre o texto e a imagem */
+    padding: 10px 20px;
+    /* Preenchimento interno */
+}
+
+.botao-apagarLista img {
+    width: 24px;
+    /* Largura da imagem no botão */
+    height: 24px;
+    /* Altura da imagem no botão */
+}
+
+.botao-apagarLista:hover {
+    background-color: #7EC3CF;
+    /* Cor de fundo ao passar o mouse */
+}
+
+p {
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte padrão para todos os parágrafos */
+}
+
+/* QUADRO DE CONTATOS */
+.lista {
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: center;
+    /* Centraliza os contatos horizontalmente */
+    gap: 50px;
+    /* Espaço entre os cards de contato */
+    margin-bottom: 50px;
+    /* Margem na base */
+    margin-top: 20px;
+    /* Margem no topo */
+    flex-wrap: wrap;
+    /* Permite que os contatos quebrem para a próxima linha */
+}
+
+.contato:hover {
+    transform: translateY(-10px);
+    /* Move o card 10px para cima ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Aumenta a sombra para dar efeito de elevação */
+}
+
+.contato {
+    display: flex;
+    /* Ativa o Flexbox */
+    flex-direction: column;
+    /* Organiza os itens do card em coluna */
+    background-color: #DEF3F6;
+    /* Cor de fundo do card */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    padding: 20px;
+    /* Preenchimento interno */
+    width: 350px;
+    /* Largura do card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animação suave para o efeito :hover */
+    gap: 10px;
+    /* Espaço entre os elementos internos do card */
+    align-items: flex-start;
+    /* Alinha os itens à esquerda dentro do card */
+}
+
+.imagem {
+    border-radius: 50%;
+    /* Deixa a imagem redonda */
+    width: 150px;
+    /* Largura da imagem */
+    height: 150px;
+    /* Altura da imagem */
+    object-fit: cover;
+    /* Garante que a imagem cubra o espaço sem distorcer */
+    margin-bottom: 10px;
+    /* Espaço abaixo da imagem */
+    align-self: center;
+    /* Centraliza a imagem no eixo transversal (horizontal) do flex container */
+}
+
+.nome,
+.parentesco {
+    width: 100%;
+    /* Ocupa toda a largura do card */
+    text-align: center;
+    /* Centraliza o texto */
+}
+
+.nome {
+    font-family: "Montserrat", sans-serif;
+    /* Define a fonte */
+    font-weight: bold;
+    /* Texto em negrito */
+    font-size: 25px;
+    /* Tamanho da fonte */
+}
+
+.parentesco {
+    color: #91D1DC;
+    /* Cor do texto */
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte */
+    margin-top: -10px;
+    /* Margem negativa para aproximar do nome */
+    font-size: 18px;
+    /* Tamanho da fonte */
+    font-weight: bold;
+    /* Texto em negrito */
+}
+
+.texto {
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte */
+    font-size: 18px;
+    /* Tamanho da fonte */
+}
+
+.infos {
+    display: flex;
+    /* Ativa o Flexbox */
+    align-items: center;
+    /* Alinha verticalmente o ícone e o texto */
+    gap: 10px;
+    /* Espaço entre ícone e texto */
+}
+
+.infos img {
+    margin-right: 5px;
+    /* Espaço à direita do ícone */
+}
+
+.botao-editar {
+    padding: 0.75rem;
+    /* Preenchimento interno */
+    background-color: #91D1DC;
+    /* Cor de fundo */
+    color: white;
+    /* Cor do texto */
+    border: none;
+    /* Sem borda */
+    width: 100px;
+    /* Largura do botão */
+    margin-top: 10px;
+    /* Espaço acima do botão */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    cursor: pointer;
+    /* Cursor de mãozinha */
+    font-size: 1rem;
+    /* Tamanho da fonte */
+    align-self: center;
+    /* Centraliza o botão no card */
+}
+
+.ver-mais {
+    color: #91D1DC;
+    /* Cor do texto */
+    cursor: pointer;
+    /* Cursor de mãozinha */
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte */
+    margin-top: 10px;
+    /* Espaço acima */
+    text-decoration: underline;
+    /* Texto sublinhado */
+    font-weight: bold;
+    /* Texto em negrito */
+    align-self: center;
+    /* Centraliza o link no card */
+}
+
+.ver-mais:hover {
+    color: #5ab1c0;
+    /* Muda a cor ao passar o mouse */
+}
+
+/* ALERT (SweetAlert2) */
+.swal2-title,
+.swal2-html-container,
+.swal2-confirm,
+.swal2-cancel {
+    font-family: "Nunito", sans-serif;
+    /* Aplica a fonte padrão do site aos pop-ups de alerta para manter a consistência visual */
+}
+
+/* RODAPÉ */
+footer {
+    background-color: #91D1DC;
+    /* Cor de fundo do rodapé */
+    padding: 10px;
+    /* Preenchimento interno */
+    display: flex;
+    /* Ativa o Flexbox */
+    flex-direction: column;
+    /* Itens empilhados verticalmente */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    font-family: "Nunito", sans-serif;
+    /* Define a fonte */
+    margin-top: 100px;
+    /* Espaço acima do rodapé */
+}
+
+.footer-container {
+    display: flex;
+    /* Ativa o Flexbox */
+    flex-wrap: wrap;
+    /* Permite que as colunas quebrem a linha */
+    justify-content: center;
+    /* Centraliza o conjunto de colunas */
+    align-items: flex-start;
+    /* Alinha as colunas pelo topo */
+    padding: 40px 20px;
+    /* Preenchimento interno */
+    text-align: center;
+    /* Centraliza o texto */
+    gap: 60px;
+    /* Espaço entre as colunas */
+}
+
+.footer-column {
+    flex: 1 1 200px;
+    /* Define que a coluna pode crescer, mas tem uma base de 200px */
+    display: flex;
+    /* Ativa o Flexbox */
+    flex-direction: column;
+    /* Itens da coluna empilhados verticalmente */
+    align-items: center;
+    /* Centraliza o conteúdo da coluna */
+    text-align: center;
+    /* Centraliza o texto */
+    color: white;
+    /* Cor do texto */
+    padding: 10px;
+    /* Preenchimento interno */
+}
+
+.footer-column h1 {
+    font-size: 16px;
+    /* Tamanho da fonte do título da coluna */
+    margin-bottom: 10px;
+    /* Espaço abaixo do título */
+}
+
+.footer-column p {
+    font-size: 12px;
+    /* Tamanho da fonte dos parágrafos */
+    margin: 2px;
+    /* Margem pequena */
+}
+
+.footer-column a {
+    color: white;
+    /* Cor do texto dos links */
+    font-size: 12px;
+    /* Tamanho da fonte */
+    margin: 2px;
+    /* Margem pequena */
+    text-decoration: none;
+    /* Remove o sublinhado */
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+    /* Adiciona sublinhado ao passar o mouse */
+}
+
+.redes-sociais {
+    width: 100%;
+    /* Ocupa toda a largura disponível */
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: center;
+    /* Centraliza os ícones */
+    gap: 20px;
+    /* Espaço entre os ícones */
+    margin-bottom: -20px;
+    /* Margem inferior negativa */
+}
+
+.redes-sociais img {
+    width: 300px;
+    /* Largura da imagem das redes */
+    height: 50px;
+    /* Altura da imagem */
+    object-fit: contain;
+    /* Garante que a imagem caiba sem distorcer */
+}
+
+.footer-logo img {
+    width: 60px;
+    /* Largura da logo */
+    height: 50px;
+    /* Altura da logo */
+    object-fit: contain;
+    /* Garante que a imagem caiba sem distorcer */
+}
+
+.linha-rodape {
+    width: 90%;
+    /* Largura de 90% do container pai */
+    height: 1px;
+    /* Espessura da linha */
+    background-color: #ffffff;
+    /* Cor da linha */
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+.footer-bottom {
+    width: 100%;
+    /* Ocupa toda a largura */
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: center;
+    /* Centraliza o conteúdo */
+    align-items: center;
+    /* Alinha verticalmente */
+    gap: 10px;
+    /* Espaço entre os itens */
+    text-align: center;
+    /* Centraliza o texto */
+    font-size: 12px;
+    /* Tamanho da fonte */
+    color: white;
+    /* Cor do texto */
+}

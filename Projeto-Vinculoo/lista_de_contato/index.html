@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" type="image/x-icon" href="../home/img/favicon.png">
+    <link rel="stylesheet" href="../lista_de_contato/style.css">
+    <title>Lista de Contatos</title>
+</head>
+
+<body>
+    <!-- Cabeçalho da página -->
+    <header class="cabeçalho">
+        <a class="icone-menu" id="menu-icon">
+            <img src="../home/img/icone-menu.png" alt="menu">
+        </a>
+        <!-- Barra de Pesquisa -->
+        <div class="centraliza">
+            <div class="barraDeBusca">
+                <img src="../home/img/lupa.png" alt="lupa" />
+                <input type="text" id="barraPesquisa" class="textoDaBarra" placeholder="Procure algum contato salvo..."
+                    oninput="filtrarContatos()" />
+            </div>
+        </div>
+        <a class="perfil" href="../usuario/index.html"><img src="../home/img/perfil.png" alt="Imagem perfil"></a>
+    </header>
+
+    <!-- Sidebar (menu lateral oculto) -->
+    <aside id="sidebar" class="sidebar oculto">
+        <div class="logo-sidebar"><img src="../home/img/logo.png" alt="logo" width="80px">
+            <h2>Vinculoo</h2>
+        </div>
+        <ul>
+            <li><a href="../home/index.html"><img src="../home/img/menu-principal.png" alt="">Menu Principal</a>
+            </li>
+            <li><a href="../adicionar_contato/index.html"><img src="../home/img/adicionar.png"> Adicionar
+                    Contato</a>
+            </li>
+            <li><a href="../remover_contato/index.html"><img src="../home/img/remover.png"> Remover Contato</a></li>
+            <li><a href="../editar_contato/index.html"><img src="../home/img/editar.png"> Editar Contato</a></li>
+            <li><a href="../lista_de_contato/index.html"><img src="../home/img/listar.png"> Meus Contatos</a></li>
+        </ul>
+    </aside>
+
+    <!-- Título principal -->
+    <main>
+        <div class="titulo">
+            <h1>Meus Contatos ⟶</h1>
+            <button class="botao-apagarLista" id="botao-apagarLista" type="submit">Apagar Lista<img
+                    src="img/lixeira.png"></button>
+        </div>
+
+        <!-- Cards de Contato -->
+        <div class="lista">
+            <!-- <div class="contato">
+            <img class="imagem">
+            <p class="nome"></p>
+            <p class="telefone"></p>
+            <p class="email"></p>
+            <p class="parentesco"></p>
+            <p class="empresa"></p>
+            <p class="cargo"></p>
+            <p class="aniversario"></p>
+        </div> -->
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="redes-sociais">
+                <img src="../remover_contato/img/redes.png" alt="Redes Sociais">
+            </div>
+
+            <div class="footer-column">
+                <h1>Escritório Vinculoo no Brasil</h1>
+                <p>R. Boa Vista, 825 - Boa Vista,</p>
+                <p>São Caetano do Sul - SP, 09572-300</p>
+            </div>
+
+            <div class="footer-column">
+                <h1>Para você</h1>
+                <a href="../cadastro/index.html">Juntar</a>
+                <a href="../login/index.html">Entrar</a>
+                <a href="../usuario/index.html">Sua conta</a>
+            </div>
+
+            <div class="footer-column">
+                <h1>Nossa empresa</h1>
+                <a href="../sobre_nos/index.html">Sobre nós</a>
+                <a href="../sobre_nos/index.html">Estamos contratando!</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+        </div>
+
+        <div class="linha-rodape"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="../home/img/logo.png" alt="Logo">
+            </div>
+            <p>© Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+     <!-- Script para funcionamento da página -->
+    <script>
+        //JS DO SIDEBAR
+        const sidebar = document.getElementById("sidebar"); //Pega o elemento do sidebar
+        const menuIcon = document.getElementById("menu-icon"); //Pega o ícone do menu (três linhas ou botão de abrir menu)
+
+        //Adiciona um evento de clique no ícone do menu
+        menuIcon.addEventListener("click", function (event) {
+            event.stopPropagation(); // Evita que o clique feche o menu
+            sidebar.classList.toggle("oculto"); //Adiciona ou remove a classe "oculto" no sidebar, que faz o menu aparecer ou sumir
+        });
+
+        // Adiciona um evento de clique em qualquer parte da página
+        document.addEventListener("click", function (event) {
+            const clicouFora = !sidebar.contains(event.target) && !menuIcon.contains(event.target); //Verifica se clicou fora do sidebar e do ícone do menu
+            if (clicouFora) { //Se clicou fora, adiciona a classe "oculto" no sidebar para fechar o menu
+                sidebar.classList.add("oculto");
+            }
+        });
+
+        // MOSTRA CONTATOS:
+        // Váriavel que armazena todos os contatos
+        let todosContatos = [];
+
+        // Buscar contatos da API e mostrar na tela
+        function carregarContatos() {
+            fetch("http://" + "10.84.6.142" + ":3000/contatos") // Chamada para o backend via fetch
+                .then(response => response.json()) // Converte a resposta em JSON
+                .then(contatos => {
+                    todosContatos = contatos; // Salva os contatos na variável global
+                    exibirContatos(contatos); // Exibe os contatos na tela
+                })
+                .catch(error => {
+                    console.log("Erro ao carregar contatos:", error); // Mostra erro no console, se houver
+                });
+        }
+
+        //Função para exibir os contatos na div .lista
+        function exibirContatos(lista) {
+            const listaDiv = document.querySelector('.lista');
+            listaDiv.innerHTML = ''; // Limpa o conteúdo anterior antes de exibir a nova lista
+
+            // Se a lista estiver vazia, mostra mensagem ao usuário
+            if (lista.length === 0) {
+                listaDiv.innerHTML = "<p>Nenhum contato encontrado.</p>";
+                return;
+            }
+
+            // Percorre a lista de contatos e cria os elementos HTML para cada um
+            lista.forEach(contato => {
+                const contatoDiv = document.createElement('div'); // Cria a div principal do contato
+                contatoDiv.className = 'contato'; // Adiciona a classe para estilização
+
+                let infoExtraHTML = ''; // Inicializa string para as informações extras opcionais
+
+                // Se o campo Empresa existir, adiciona bloco com imagem e texto
+                if (contato.Empresa) {
+                    infoExtraHTML += `
+            <div class="infos">
+                <img src="../lista_de_contato/img/empresa.png" width="40px">
+                <p class="texto">${contato.Empresa}</p>
+            </div>`;
+                }
+
+                // Se o campo Cargo existir, adiciona o bloco correspondente
+                if (contato.Cargo) {
+                    infoExtraHTML += `
+            <div class="infos">
+                <img src="../lista_de_contato/img/cargo.png" width="40px">
+                <p class="texto">${contato.Cargo}</p>
+            </div>`;
+                }
+
+                // Se o campo Aniversario existir, também adiciona esse bloco
+                if (contato.Aniversario) {
+                    infoExtraHTML += `
+            <div class="infos">
+                <img src="../lista_de_contato/img/aniversario.png" width="40px">
+                <p class="texto">${contato.Aniversario}</p>
+            </div>`;
+                }
+
+                // Se houver conteúdo extra, cria uma div oculta com essas informações
+                const infoExtraDiv = infoExtraHTML ? `<div class="info-extra" id="extra-${contato.id}" style="display: none;">${infoExtraHTML}</div>` : '';
+
+                // Usa imagem do contato se houver, senão usa imagem padrão
+                const foto = contato.Foto ? contato.Foto : "../home/img/perfil.png";
+
+                // Monta o HTML do contato principal
+                contatoDiv.innerHTML = `
+        <img class="imagem" src="${foto}" alt="Foto de ${contato.Nome}">
+        <p class="nome">${contato.Nome}</p>
+        <p class="parentesco">${contato.Parentesco}</p>
+
+        <div class="infos">
+            <img src="../lista_de_contato/img/telefone.png" width="40px">
+            <p class="texto">${contato.Telefone}</p>
+        </div>
+
+        <div class="infos">
+            <img src="../lista_de_contato/img/email.png" width="40px">
+            <p class="texto">${contato.Email}</p>
+        </div>
+
+        ${infoExtraDiv} <!-- Informações extras, se houver -->
+
+        <button class="botao-editar" onclick="editarContato(${contato.id})">Editar</button>
+
+        ${infoExtraDiv ? `<p class="ver-mais" onclick="toggleExtra(${contato.id})" id="toggle-${contato.id}">Ver Mais ▼</p>` : ''}
+        `;
+
+                // Adiciona o contato montado dentro da lista principal
+                listaDiv.appendChild(contatoDiv);
+            });
+        }
+
+        //BOTÃO EXCLUIR LISTA
+        const botaoApagar = document.getElementById('botao-apagarLista');
+
+        // Adiciona evento de clique no botão
+        botaoApagar.addEventListener('click', function (e) {
+            e.preventDefault(); // Evita comportamento padrão do botão (como enviar formulário)
+
+            // Exibe alerta de confirmação usando SweetAlert2
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: "Essa ação vai apagar TODOS os seus contatos e não poderá ser desfeita!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#28bdd7',
+                confirmButtonText: 'Sim, apagar tudo!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Envia requisição DELETE para apagar todos os contatos
+                    fetch('http://127.0.0.1:3000/contatos', {
+                        method: 'DELETE'
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                // Se deu certo, mostra alerta de sucesso e recarrega a página
+                                Swal.fire(
+                                    'Apagado!',
+                                    'Todos os seus contatos foram removidos com sucesso.',
+                                    'success'
+                                ).then(() => {
+                                    window.location.reload(); // Recarrega a página
+                                });
+                            } else {
+                                // Se a resposta não for OK, mostra alerta de erro
+                                Swal.fire(
+                                    'Erro!',
+                                    'Não foi possível apagar os contatos.',
+                                    'error'
+                                );
+                            }
+                        })
+                        .catch(error => {
+                            // Se houve erro na conexão, mostra alerta de erro
+                            console.error('Erro:', error);
+                            Swal.fire(
+                                'Erro!',
+                                'Ocorreu um problema na conexão com o servidor.',
+                                'error'
+                            );
+                        });
+                }
+            });
+        });
+
+        //ENVIA PARA A PÁGINA EDITAR
+        function editarContato(id) {
+            window.location.href = `../pagina_editar/index.html?id=${id}`;
+        }
+
+        //VER MAIS E VER MENOS
+        function toggleExtra(id) {
+            const extraDiv = document.getElementById(`extra-${id}`); // Seleciona a div extra
+            const toggleText = document.getElementById(`toggle-${id}`); // Seleciona o texto "Ver Mais"
+
+            // Alterna entre mostrar e esconder a div extra
+            if (extraDiv.style.display === 'none') {
+                extraDiv.style.display = 'block';
+                toggleText.innerHTML = 'Ver Menos ▲'; // Altera o texto do botão
+            } else {
+                extraDiv.style.display = 'none';
+                toggleText.innerHTML = 'Ver Mais ▼'; // Volta o texto original
+            }
+        }
+
+        // FILTRA OS CONTATOS ENQUANTO DIGITA
+        function filtrarContatos() {
+            const texto = document.getElementById('barraPesquisa').value.toLowerCase(); // Pega o texto digitado
+
+            // Filtra os contatos cujo nome contenha o texto digitado
+            const filtrados = todosContatos.filter(contato =>
+                contato.Nome.toLowerCase().includes(texto)
+            );
+
+            exibirContatos(filtrados); // Exibe apenas os contatos filtrados
+        }
+
+        //Carrega os contatos quando abre a página
+        window.onload = () => {
+            // Captura os parâmetros que vieram na URL
+            const parametros = new URLSearchParams(window.location.search);
+            const pesquisa = parametros.get('pesquisa');
+
+            // Faz a requisição na API para buscar todos os contatos
+            fetch("http://127.0.0.1:3000/contatos")
+                .then(response => response.json()) // Transforma a resposta em JSON
+                .then(contatos => {
+                    // Salva todos os contatos no array
+                    todosContatos = contatos;
+
+                    // Captura a barra de pesquisa da página
+                    const barraPesquisa = document.getElementById('barraPesquisa');
+
+                    // Se a URL tem algum texto no parâmetro pesquisa:
+                    if (pesquisa) {
+                        // Preenche o input da barra com esse texto
+                        barraPesquisa.value = pesquisa;
+
+                        // Filtra os contatos que incluam esse texto no nome (sem diferenciar maiúscula e minúscula)
+                        const filtrados = todosContatos.filter(contato =>
+                            contato.Nome.toLowerCase().includes(pesquisa.toLowerCase())
+                        );
+
+                        // Mostra na tela apenas os contatos filtrados
+                        exibirContatos(filtrados);
+                    } else {
+                        // Se não tem nada na pesquisa, mostra todos os contatos
+                        exibirContatos(contatos);
+                    }
+                })
+
+                .catch(error => {
+                    // Se der erro na comunicação com a API, exibe no console
+                    console.log("Erro ao carregar contatos:", error);
+                });
+        };
+    </script>
+</body>
+
+</html>

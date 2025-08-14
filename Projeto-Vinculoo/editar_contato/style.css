@@ -1,0 +1,405 @@
+body {
+  margin: 0; /* Remove margem padrão */
+  background-color: #F8FFFF; /* Cor de Fundo */
+}
+
+/* CABEÇALHO: */
+header {
+  position: relative; /* Define como referência para elementos absolutos */
+  background-color: #91D1DC; /* Cor de fundo */
+}
+
+.cabeçalho {
+  position: relative; /* Permite posicionar elementos dentro de forma absoluta */
+  height: 100px; /* Define a altura do cabeçalho */
+  background-color: #92D0DB; /* Cor de fundo */
+  display: flex; /* Ativa o Flexbox */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.logo {
+  max-height: 70px; /* Define altura máxima da logo */
+  width: 70px; /* Define largura da logo */
+}
+
+.icone-menu,
+.perfil {
+  position: absolute; /* Permite posicionar fora do fluxo normal (não é afetado pela posição dos outros elementos) */
+  bottom: 10px; /* Alinha na parte inferior do cabeçalho */
+}
+
+.icone-menu {
+  left: 50px; /* Distância da esquerda */
+}
+
+.perfil {
+  right: 50px; /* Distância da direita */
+}
+
+.icone-menu img,
+.perfil img {
+  height: 65px; /* Altura das imagens */
+  width: auto; /* Largura automática */
+  object-fit: contain; /* Garante que a imagem não distorça */
+}
+
+/* MENU SIDEBAR: */
+.sidebar {
+  position: fixed; /* Fixa na tela */
+  top: 0; /* Começa no topo */
+  left: 0; /* Alinha na lateral esquerda */
+  width: 220px; /* Define a largura da sidebar */
+  height: 100%; /* Ocupa 100% da altura da tela */
+  background-color: #92D0DB; /* Cor de fundo */
+  padding-top: 20px; /* Espaço no topo da sidebar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra lateral */
+  transition: transform 0.3s ease; /* Efeito suave para abrir/fechar */
+  z-index: 999; /* Fica acima dos outros elementos */
+}
+
+/* Oculta o menu */
+.sidebar.oculto {
+  transform: translateX(-100%); /* Move para fora da tela */
+}
+
+/* Conteúdo do menu */
+.logo-sidebar {
+  text-align: center; /* Centraliza horizontalmente */
+  margin-bottom: 20px; /* Espaço inferior */
+  padding: 10px; /* Espaço interno */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+h2{
+  font-family: "Montserrat", sans-serif; /* Fonte usada */
+  color: #ffffff; /* Cor do texto */
+  font-size: 26px; /* Tamanho da fonte */
+}
+
+.sidebar ul {
+  list-style: none; /* Remove os pontinhos da lista */
+  padding: 0; /* Remove espaçamento interno */
+  margin: 0; /* Remove margem */
+}
+
+.sidebar li {
+  padding: 12px 16px; /* Espaçamento interno */
+  display: flex; /* Flexbox para alinhar ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+/* Links dentro do menu */
+.sidebar li a {
+  color: #000; /* Cor do texto */
+  text-decoration: none; /* Remove sublinhado */
+  display: flex; /* Ativa flexbox */
+  align-items: center; /* Centraliza na vertical */
+  gap: 10px; /* Espaço entre ícone e texto */
+  width: 100%; /* Ocupa toda a largura */
+  font-family: "Nunito", sans-serif; /* Fonte */
+}
+
+/* Efeito quando passa o mouse no link */
+.sidebar li a:hover {
+  background-color: #C5E8EE; /* Cor de fundo ao passar o mouse */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Ícones do menu */
+.sidebar li img {
+  height: 30px; /* Altura dos ícones */
+  width: 30px; /* Largura dos ícones */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* CORPO: */
+/* Escritas: */
+.titulo {
+  display: flex; /* Usa flexbox */
+  justify-content: space-between; /* Espaço entre os itens */
+  align-items: center; /* Alinha verticalmente */
+  font-family: "Montserrat", sans-serif; /* Fonte */
+  margin: 2% 5%; /* Margem ao redor */
+}
+
+.titulo h1 {
+  font-size: 30px; /* Tamanho do título */
+}
+
+.subtitulo {
+  font-family: "Montserrat", sans-serif; /* Fonte */
+  font-size: 26px; /* Tamanho do subtítulo */
+  margin-top: 2%; /* Espaço acima */
+  align-self: center; /* Centraliza no container */
+  top: 40px;
+}
+
+p {
+  font-family: "Nunito", sans-serif; /* Fonte para parágrafos */
+}
+
+/* Quadro de Contatos: */
+.quadro {
+  display: flex; /* Usa flexbox */
+  justify-content: center; /* Centraliza os itens */
+  gap: 50px; /* Espaço entre os itens */
+  margin-bottom: 50px; /* Espaço abaixo */
+  margin-top: 20px; /* Espaço acima */
+  flex-wrap: wrap; /* Permite quebrar linha */
+}
+
+.fundo {
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Itens em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  text-align: center; /* Texto centralizado */
+  background-color: #DEF3F6; /* Cor de fundo */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 20px; /* Espaço interno */
+  width: 80%; /* Largura relativa */
+  justify-content: center; /* Centraliza verticalmente */
+  gap: 50px; /* Espaço entre itens internos */
+}
+
+/* Barra de Pesquisa: */
+.barraDeBusca {
+  background-color: #DEF3F6; /* Cor de fundo */
+  border: solid 3px #92D0DB; /* Borda */
+  border-radius: 50px; /* Bordas arredondadas */
+  width: 600px; /* Largura da barra */
+  margin-top: -10%; /* Sobe a barra */
+  display: flex; /* Usa flexbox */
+  align-items: center; /* Alinha verticalmente */
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.barraDeBusca img {
+  width: 30px; /* Largura do ícone */
+  padding: 5px; /* Espaço interno */
+  float: left; /* Alinha à esquerda */
+}
+
+.barraDeBusca input:focus {
+  outline: none; /* Remove borda de foco */
+}
+
+.textoDaBarra {
+  float: left; /* Alinha à esquerda */
+  background-color: transparent; /* Fundo transparente */
+  padding-left: 5px; /* Espaço interno à esquerda */
+  font-family: "Nunito", sans-serif; /* Fonte */
+  font-size: 18px; /* Tamanho do texto */
+  border: none; /* Sem borda */
+  height: 32px; /* Altura */
+  width: 260px; /* Largura */
+}
+
+.centraliza {
+  display: flex; /* Flexbox */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 50px; /* Espaço entre itens */
+  margin-bottom: 50px; /* Espaço abaixo */
+  margin-top: 20px; /* Espaço acima */
+  flex-wrap: wrap; 
+}
+
+/* Cards de Contato: */
+.lista {
+  display: flex; /* Flexbox */
+  justify-content: center; /* Centraliza */
+  gap: 50px; /* Espaço entre itens */
+  margin-bottom: 50px; /* Espaço abaixo */
+  margin-top: 20px; /* Espaço acima */
+  flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+.contato {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Itens em coluna */
+  background-color: #F8FFFF; /* Cor do card */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 20px; /* Espaço interno */
+  width: 350px; /* Largura do card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação */
+  gap: 10px; /* Espaço entre itens */
+  align-items: flex-start; /* Alinha à esquerda */
+}
+
+.contato:hover {
+  transform: translateY(-10px); /* Sobe o card */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+/* Escritas do card: */
+.nome,
+.parentesco {
+  width: 100%; /* Ocupa largura total */
+  text-align: center; /* Centraliza texto */
+}
+
+.nome {
+  font-family: "Montserrat", sans-serif; /* Fonte */
+  font-weight: bold; /* Negrito */
+  font-size: 25px; /* Tamanho da fonte */
+}
+
+.parentesco {
+  color: #91D1DC; /* Cor */
+  font-family: "Nunito", sans-serif; /* Fonte */
+  margin-top: -10px; /* Sobe o texto */
+  font-size: 18px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+}
+
+.texto {
+  font-family: "Nunito", sans-serif; /* Fonte */
+  font-size: 18px; /* Tamanho da fonte */
+}
+
+.imagem {
+  border-radius: 50%; /* Imagem redonda */
+  width: 150px; /* Largura */
+  height: 150px; /* Altura */
+  object-fit: cover; /* Preenche sem distorcer */
+  margin-bottom: 10px; /* Espaço abaixo */
+  align-self: center; /* Centraliza no card */
+}
+
+/* Informações ocultas:*/
+.infos {
+  display: flex; /* Flexbox */
+  align-items: center; /* Alinha verticalmente */
+  gap: 10px; /* Espaço entre ícone e texto */
+}
+
+.infos img {
+  margin-right: 5px; /* Espaço à direita */
+}
+
+/* Botão editar: */
+.botao-editar {
+  margin-top: 8px; /* Espaço acima */
+  padding: 6px 12px; /* Espaço interno */
+  border: 2px solid #6ac7d8; /* Borda */
+  border-radius: 20px; /* Bordas arredondadas */
+  color: #6ac7d8; /* Cor do texto */
+  background: transparent; /* Fundo transparente */
+  cursor: pointer; /* Muda cursor ao passar */
+  font-size: 1rem; /* Tamanho do texto */
+  font-weight: bold; /* Texto em negrito */
+  position: relative; /* Posição relativa */
+  align-self: center; /* Centraliza */
+}
+
+.botao-editar:hover {
+  background-color: #6ac7d8; /* Fundo azul ao passar o mouse */
+  color: white; /* Texto branco */
+}
+
+/* Botão ver mais */
+.ver-mais {
+  color: #91D1DC; /* Cor */
+  cursor: pointer; /* Muda cursor */
+  font-family: "Nunito", sans-serif; /* Fonte */
+  margin-top: 10px; /* Espaço acima */
+  text-decoration: underline; /* Sublinhado */
+  font-weight: bold; /* Negrito */
+  align-self: center; /* Centraliza */
+}
+
+.ver-mais:hover {
+  color: #5ab1c0; /* Azul mais escuro */
+}
+
+/* RODAPÉ: */
+footer {
+  background-color: #91D1DC; /* Fundo */
+  padding: 10px; /* Espaço interno */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Itens em coluna */
+  align-items: center; /* Centraliza */
+  font-family: "Nunito", sans-serif; /* Fonte */
+  margin-top: 100px; /* Espaço acima */
+}
+
+.footer-container {
+  display: flex; /* Flexbox */
+  flex-wrap: wrap; /* Quebra linha se necessário */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha no topo */
+  padding: 40px 20px; /* Espaço interno */
+  text-align: center; /* Texto centralizado */
+  gap: 60px; /* Espaço entre colunas */
+}
+
+.footer-column {
+  flex: 1 1 200px; /* Largura mínima e flexível */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Itens em coluna */
+  align-items: center; /* Centraliza */
+  text-align: center; /* Texto centralizado */
+  color: white; /* Texto branco */
+  padding: 10px; /* Espaço interno */
+}
+
+.footer-column h1 {
+  font-size: 16px; /* Tamanho do título */
+  margin-bottom: 10px; /* Espaço abaixo */
+}
+
+.footer-column p {
+  font-size: 12px; /* Tamanho do texto */
+  margin: 2px; /* Margem */
+}
+
+.footer-column a {
+  color: white;
+  font-size: 12px;
+  margin: 2px;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.redes-sociais {
+  width: 100%; /* Ocupa toda a largura */
+  display: flex; /* Flexbox */
+  justify-content: center; /* Centraliza */
+  gap: 20px; /* Espaço entre ícones */
+  margin-bottom: -20px; /* Sobe um pouco */
+}
+
+.redes-sociais img {
+  width: 300px; /* Largura do banner */
+  height: 50px; /* Altura do banner */
+  object-fit: contain; /* Mantém proporção sem cortar */
+}
+
+.footer-logo img {
+  width: 60px; /* Largura da logo */
+  height: 50px; /* Altura da logo */
+  object-fit: contain; /* Mantém proporção */
+}
+
+.linha-rodape {
+  width: 90%; /* Largura da linha */
+  height: 1px; /* Altura da linha */
+  background-color: #ffffff; /* Cor da linha */
+  margin: 20px 0; /* Espaço vertical */
+}
+
+.footer-bottom {
+  width: 100%; /* Ocupa toda a largura */
+  display: flex; /* Flexbox */
+  justify-content: center; /* Centraliza */
+  align-items: center; /* Alinha verticalmente */
+  gap: 10px; /* Espaço entre itens */
+  text-align: center; /* Texto centralizado */
+  font-size: 12px; /* Tamanho do texto */
+  color: white; /* Cor do texto */
+}

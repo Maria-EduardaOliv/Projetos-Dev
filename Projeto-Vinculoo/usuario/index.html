@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../home/img/favicon.png">
+    <link rel="stylesheet" href="../usuario/style.css">
+    <title>Usuário</title>
+</head>
+
+<body>
+
+    <!-- Cabeçalho da página -->
+    <header class="cabeçalho">
+        <a class="icone-menu" id="menu-icon"><img src="../home/img/icone-menu.png" alt="menu"></a>
+        <img class="logo" src="../home/img/logo.png" alt="Logo">
+    </header>
+
+    <!-- Menu-->
+    <aside id="sidebar" class="sidebar oculto">
+        <div class="logo-sidebar">
+            <img src="../home/img/logo.png" alt="logo" width="100px">
+            <h1 class="ola" id="titulo-usuario">Olá, nome!</h1>
+        </div>
+        <ul>
+            <li><a href="../home/index.html"><img src="../home/img/menu-principal.png" alt="">Menu Principal</a></li>
+            <li><a href="../adicionar_contato/index.html"><img src="../home/img/adicionar.png">Adicionar Contato</a>
+            </li>
+            <li><a href="../remover_contato/index.html"><img src="../home/img/remover.png">Remover Contato</a></li>
+            <li><a href="../editar_contato/index.html"><img src="../home/img/editar.png">Editar Contato</a></li>
+            <li><a href="../lista_de_contato/index.html"><img src="../home/img/listar.png">Meus Contatos</a></li>
+            <li><a href="../login/index.html"><img src="img/logout.png" alt="">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Título principal -->
+    <h1 class="titulo-pagina">Seu Perfil ⟶</h1>
+
+    <!-- Para vizualizar ou editar informações do usuario -->
+    <main class="content">
+        <div class="user-data">
+            <div class="field">
+                <label>Nome:</label>
+                <span id="nome-text"></span>
+                <input id="nome-input" type="text" style="display:none;">
+            </div>
+
+            <div class="field">
+                <label>Telefone:</label>
+                <span id="telefone-text"></span>
+                <input id="telefone-input" type="text" style="display:none;">
+            </div>
+
+            <div class="field">
+                <label>Email:</label>
+                <span id="email-text"></span>
+                <input id="email-input" type="email" style="display:none;">
+            </div>
+
+            <div class="field">
+                <label>Empresa:</label>
+                <span id="empresa-text"></span>
+                <input id="empresa-input" type="text" style="display:none;">
+            </div>
+
+            <div class="field">
+                <label>Cargo:</label>
+                <span id="cargo-text"></span>
+                <input id="cargo-input" type="text" style="display:none;">
+            </div>
+
+            <div class="field">
+                <label>Aniversário:</label>
+                <span id="aniversario-text"></span>
+                <input id="aniversario-input" type="date" style="display:none;">
+            </div>
+        </div>
+
+        <button id="btn-editar" class="botao-editar" onclick="alternarEdicao()">Editar Informações</button>
+    </main>
+
+    <script>
+        // Lista dos campos que vamos mostrar e editar na página
+        const campos = ['nome', 'telefone', 'email', 'empresa', 'cargo', 'aniversario'];
+
+        // Variável para controlar se estamos no modo de edição (true) ou visualização (false)
+        let modoEdicao = false;
+
+        // Quando a página carregar completamente, executa esta função
+        window.onload = function () {
+            // Para cada campo da lista
+            campos.forEach(campo => {
+                // Pega o valor salvo no localStorage para esse campo, ou "Não informado" se não existir
+                const valor = localStorage.getItem(campo) || 'Não informado';
+
+                // Atualiza o texto visível com esse valor 
+                document.getElementById(`${campo}-text`).textContent = valor;
+
+                // Atualiza o valor do campo de input escondido para esse valor
+                document.getElementById(`${campo}-input`).value = valor;
+            });
+
+            // Pega o nome do usuário salvo, ou usa "Usuário" se não tiver
+            const nomeUsuario = localStorage.getItem('nome') || 'Usuário';
+
+            // Atualiza o título da página para dar boas-vindas personalizada
+            document.getElementById('titulo-usuario').textContent = `Olá, ${nomeUsuario}!`;
+        };
+
+        // Função chamada para alternar entre o modo de edição e o modo de visualização
+        function alternarEdicao() {
+            if (!modoEdicao) { // Se não estiver no modo edição 
+                // Para cada campo, esconde o texto e mostra o input para editar
+                campos.forEach(campo => {
+                    document.getElementById(`${campo}-text`).style.display = 'none';   // Esconde texto
+                    document.getElementById(`${campo}-input`).style.display = 'block'; // Mostra input
+                });
+                // Altera o texto do botão para "Salvar" para indicar que agora pode salvar as mudanças
+                document.getElementById('btn-editar').textContent = 'Salvar';
+                modoEdicao = true; // Seta que estamos no modo edição
+            } else { // Se já estiver no modo edição 
+                // Para cada campo
+                campos.forEach(campo => {
+                    // Pega o valor digitado no input, removendo espaços extras 
+                    const valor = document.getElementById(`${campo}-input`).value.trim();
+
+                    // Salva o valor no localStorage para manter mesmo após recarregar a página
+                    localStorage.setItem(campo, valor);
+
+                    // Atualiza o texto visível para o novo valor ou "Não informado" se estiver vazio
+                    document.getElementById(`${campo}-text`).textContent = valor || 'Não informado';
+
+                    // Mostra o texto e esconde o input para voltar ao modo visualização
+                    document.getElementById(`${campo}-text`).style.display = 'inline';
+                    document.getElementById(`${campo}-input`).style.display = 'none';
+                });
+                // Altera o texto do botão para "Editar Informações" para indicar que pode editar novamente
+                document.getElementById('btn-editar').textContent = 'Editar Informações';
+                modoEdicao = false; // Seta que voltamos ao modo visualização
+            }
+        }
+    </script>
+</body>
+
+</html>

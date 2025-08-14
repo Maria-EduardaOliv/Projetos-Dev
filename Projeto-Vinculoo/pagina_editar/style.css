@@ -1,0 +1,299 @@
+/* RESET BÁSICO: */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Remove margens/paddings padrão e facilita dimensionamento de elementos */
+}
+
+/* CONFIGURAÇÕES GERAIS DO BODY: */
+body {
+  background-color: #F8FFFF;
+  /* Cor de fundo principal da página */
+  font-family: "Nunito", sans-serif;
+  /* Fonte padrão para todo o corpo */
+}
+
+/* CABEÇALHO: */
+header {
+  position: relative;
+  /* Permite posicionamento absoluto de elementos filhos */
+  background-color: #91D1DC;
+  /* Cor de fundo do cabeçalho */
+}
+
+.cabeçalho {
+  position: relative;
+  height: 100px; /* altura ajustável */
+  background-color: #91D1DC;
+  display: flex;
+  justify-content: center; /* centraliza a logo horizontalmente */
+  align-items: center;      /* centraliza verticalmente */
+}
+
+.logo {
+  max-height: 70px; /* limita altura da logo */
+  width: 70px; /* largura fixa */
+}
+
+/* ÍCONES DO CABEÇALHO: */
+.icone-menu, .perfil {
+  position: absolute;
+  bottom: 10px; /* distância da base */
+}
+
+.icone-menu {
+  left: 50px; /* posicionado no canto inferior esquerdo */
+}
+
+.perfil {
+  right: 50px; /* posicionado no canto inferior direito */
+}
+
+.icone-menu img, .perfil img {
+  height: 65px;
+  width: auto; /* mantém proporção original */
+  object-fit: contain; /* garante que não distorça */
+}
+
+/* MENU SIDEBAR: */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #A4D9E5; /* tom mais claro que o cabeçalho */
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* sombra lateral */
+  transition: transform 0.3s ease; /* animação suave */
+  z-index: 999; /* garante que fique acima de outros elementos */
+}
+
+/* ESTADO OCULTO DA SIDEBAR: */
+.sidebar.oculto {
+  transform: translateX(-100%); /* esconde para fora da tela */
+}
+
+/* LOGO DA SIDEBAR: */
+.logo-sidebar {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.escritaLogo {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff;
+  font-size: 26px;
+  margin-top: 10%; /* espaçamento superior */
+}
+
+/* ITENS DO MENU: */
+.sidebar ul {
+  list-style: none; /* remove marcadores */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center; /* alinha ícone e texto */
+}
+
+.sidebar li a {
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espaçamento entre ícone e texto */
+  width: 100%;
+  font-family: "Nunito", sans-serif;
+}
+
+/* EFEITO HOVER NOS ITENS: */
+.sidebar li a:hover {
+  background-color: #C5E8EE;
+  border-radius: 5px;
+}
+
+.sidebar li img {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+
+/* TÍTULOS: */
+.titulo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 5%; /* alinhamento à esquerda */
+  align-items: flex-start;
+}
+
+/* CARD DE EDIÇÃO: */
+.card {
+  background-color: #DEF3F6; /* fundo azul claro */
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px; /* largura máxima */
+  margin: 40px auto; /* centraliza horizontalmente */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* sombra suave */
+  text-align: center;
+}
+
+/* IMAGEM DO PERFIL: */
+.imagem {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* formato circular */
+  margin-bottom: 20px;
+  object-fit: cover; /* cobre todo o espaço sem distorcer */
+}
+
+/* FORMULÁRIO: */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* espaçamento entre campos */
+  text-align: left;
+}
+
+label {
+  font-weight: 600; /* texto em negrito */
+}
+
+input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px; /* bordas arredondadas */
+  background-color: white;
+  font-size: 16px;
+  outline: none; /* remove contorno padrão */
+  font-family: "Nunito", sans-serif;
+}
+
+/* FOCO NOS CAMPOS: */
+input:focus {
+  border: 2px solid #91D1DC; /* borda azul ao focar */
+}
+
+/* BOTÕES: */
+button {
+  padding: 10px;
+  background-color: #91D1DC;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* transição suave */
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+/* EFEITO HOVER NOS BOTÕES: */
+button:hover {
+  background-color: #7EC3CF; /* tom mais escuro */
+}
+
+/* RODAPÉ: */
+footer {
+  background-color: #91D1DC;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  margin-top: 100px; /* espaçamento do conteúdo acima */
+}
+
+/* CONTAINER DO RODAPÉ: */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap; /* permite quebra de linha */
+  justify-content: center; /* centraliza colunas */
+  align-items: flex-start;
+  padding: 40px 20px;
+  text-align: center;
+  gap: 60px; /* espaçamento entre colunas */
+}
+
+/* COLUNAS DO RODAPÉ: */
+.footer-column {
+  flex: 1 1 200px; /* cresce e encolhe com mínimo de 200px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.footer-column h1 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-column p {
+  font-size: 12px;
+  margin: 2px;
+}
+
+.footer-column a {
+  color: white;
+  font-size: 12px;
+  margin: 2px;
+  text-decoration: none;
+}
+
+/* EFEITO HOVER NOS LINKS: */
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+/* REDES SOCIAIS: */
+.redes-sociais {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* espaçamento entre ícones */
+  margin-bottom: -20px; /* ajuste fino de posicionamento */
+}
+
+.redes-sociais img {
+  width: 300px;
+  height: 50px;
+  object-fit: contain; /* mantém proporção */
+}
+
+/* LOGO DO RODAPÉ: */
+.footer-logo img {
+  width: 60px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* DIVISÓRIA: */
+.linha-rodape {
+  width: 90%;
+  height: 1px;
+  background-color: #ffffff;
+  margin: 20px 0;
+}
+
+/* INFORMAÇÕES DE COPYRIGHT: */
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}

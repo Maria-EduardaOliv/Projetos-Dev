@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    /* Remove margem padrão */
+    padding: 0;
+    /* Remove espaçamento interno padrão */
+    box-sizing: border-box;
+    /* Inclui padding e borda */
+}
+
+body {
+    background-color: #F8FFFF;
+    /*Cor do fundo da página*/
+    font-family: "Nunito", sans-serif;
+    /*Fonte principal da página*/
+}
+
+/* CABEÇALHO: */
+.cabeçalho {
+    position: relative;
+    /* Permite posicionar elementos dentro de forma absoluta */
+    height: 100px;
+    /* Define a altura do cabeçalho */
+    background-color: #92D0DB;
+    /* Cor de fundo */
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+.logo {
+    max-height: 70px;
+    /* Define altura máxima da logo */
+    width: 70px;
+    /* Define largura da logo */
+}
+
+.icone-menu,
+.perfil {
+    position: absolute;
+    /* Permite posicionar fora do fluxo normal (não é afetado pela posição dos outros elementos) */
+    bottom: 10px;
+    /* Alinha na parte inferior do cabeçalho */
+}
+
+.icone-menu {
+    left: 50px;
+    /* Distância da esquerda */
+}
+
+.perfil {
+    right: 50px;
+    /* Distância da direita */
+}
+
+.icone-menu img,
+.perfil img {
+    height: 65px;
+    /* Altura das imagens */
+    width: auto;
+    /* Largura automática, mantém proporção */
+    object-fit: contain;
+    /* Garante que a imagem não distorça */
+}
+
+/* MENU SIDEBAR: */
+.sidebar {
+    position: fixed;
+    /* Fixa na tela */
+    top: 0;
+    /* Começa no topo */
+    left: 0;
+    /* Alinha na lateral esquerda */
+    width: 220px;
+    /* Define a largura da sidebar */
+    height: 100%;
+    /* Ocupa 100% da altura da tela */
+    background-color: #92D0DB;
+    /* Cor de fundo */
+    padding-top: 20px;
+    /* Espaço no topo da sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    /* Sombra lateral */
+    transition: transform 0.3s ease;
+    /* Efeito suave para abrir/fechar */
+    z-index: 999;
+    /* Fica acima dos outros elementos */
+}
+
+/* Oculta o menu */
+.sidebar.oculto {
+    transform: translateX(-100%);
+    /* Move para fora da tela */
+}
+
+/* Conteúdo do menu */
+.logo-sidebar {
+    text-align: center;
+    /* Centraliza horizontalmente */
+    margin-bottom: 20px;
+    /* Espaço inferior */
+    padding: 10px;
+    /* Espaço interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+}
+
+.escritaLogo {
+    font-family: "Montserrat", sans-serif;
+    /* Fonte */
+    color: #ffffff;
+    /* Cor */
+    font-size: 26px;
+    /* Tamanho da fonte */
+    margin-top: 10%;
+    /* Espaço em cima */
+    margin-bottom: 10%;
+    /* Espaço em baixo */
+}
+
+.sidebar ul {
+    list-style: none;
+    /* Remove os pontinhos da lista */
+    padding: 0;
+    /* Remove espaçamento interno */
+    margin: 0;
+    /* Remove margem */
+}
+
+.sidebar li {
+    padding: 12px 16px;
+    /* Espaçamento interno */
+    display: flex;
+    /* Flexbox para alinhar ícone e texto */
+    align-items: center;
+    /* Centraliza verticalmente */
+}
+
+/* Links dentro do menu */
+.sidebar li a {
+    color: #000;
+    /* Cor do texto */
+    text-decoration: none;
+    /* Remove sublinhado */
+    display: flex;
+    /* Ativa flexbox */
+    align-items: center;
+    /* Centraliza ícone e texto na vertical */
+    gap: 10px;
+    /* Espaço entre ícone e texto */
+    width: 100%;
+    /* Ocupa toda a largura */
+    font-family: "Nunito", sans-serif;
+    /* Fonte */
+}
+
+/* Efeito quando passa o mouse no link */
+.sidebar li a:hover {
+    background-color: #C5E8EE;
+    /* Cor de fundo ao passar o mouse */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+}
+
+/* Ícones do menu */
+.sidebar li img {
+    height: 30px;
+    /* Altura dos ícones */
+    width: 30px;
+    /* Largura dos ícones */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+}
+
+/* CORPO: */
+.titulo {
+    display: flex;
+    /* Flexbox */
+    justify-content: space-between;
+    /* Espaço entre título e botão (nesse caso não tem, só esta para ficar padronizado) */
+    align-items: center;
+    /* Alinha verticalmente */
+    font-family: "Montserrat", sans-serif;
+    /* Fonte do título */
+    margin: 3% 5%;
+    /* Espaçamento externo (topo e laterais) */
+}
+
+.titulo h1 {
+    font-size: 30px;
+    /*Tamanho da fonte*/
+}
+
+/* FORMULÁRIO DE ADICIONAR CONTATO: */
+.form-container {
+    max-width: 500px;
+    /* Largura máxima */
+    margin: 2rem auto;
+    /* Centraliza na tela */
+    background-color: #DEF3F6;
+    /* Cor de fundo */
+    padding: 2rem;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+/*Organiza campos em colunas*/
+form {
+    display: flex;
+    flex-direction: column;
+    /* Um embaixo do outro */
+    gap: 1rem;
+    /* Espaçamento entre os campos */
+}
+
+
+label {
+    font-family: "Montserrat", sans-serif;
+    /* Fonte */
+    font-weight: 600;
+    /* Deixa em negrito */
+    color: #000000;
+    /* Cor preta */
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.foto {
+    border: 2px #91D1DC;
+    /* Cor da borda */
+    background-color: #F8FFFF;
+    /* Cor de fundo */
+    padding: 20px;
+    /* Espaçamento interno */
+    margin-bottom: -10px;
+    /* Espaço inferior */
+    width: 100%;
+    /* Ocupa toda a largura possível */
+    max-width: 400px;
+    /* Limita a largura máxima */
+    border-radius: 15px;
+    /* Bordas arredondadas */
+    cursor: pointer;
+    /* Altera cursor */
+}
+
+input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 16px;
+    outline: none;
+    padding: 0.75rem;
+    font-family: "Nunito", sans-serif;
+}
+
+input:focus {
+    border: 2px solid #91D1DC;
+    /* Borda azul quando selecionado */
+}
+
+.botao {
+    padding: 0.75rem;
+    background-color: #91D1DC;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #7EC3CF;
+    /* Azul mais escuro ao passar o mouse */
+}
+
+#preview {
+    display: block;
+    /* Faz com que se comporte como bloco */
+    margin: 10px auto;
+    /* Centraliza horizontalmente */
+    border-radius: 50%;
+    /* Opcional: deixa redonda */
+    object-fit: cover;
+    /* Corta e encaixa bem a imagem */
+    width: 200px;
+    /* Tamanho da imagem */
+    height: 200px;
+    /* Mantém altura fixa */
+    border: 2px solid #91D1DC;
+    /* Uma borda azul bonita opcional */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+/* RODAPÉ: */
+footer {
+    background-color: #91D1DC;
+    /* Cor de fundo */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* Itens em coluna */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    font-family: "Nunito", sans-serif;
+    margin-top: 100px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite quebrar linha se faltar espaço */
+    justify-content: center;
+    /* Centraliza as colunas */
+    align-items: flex-start;
+    padding: 40px 20px;
+    text-align: center;
+    gap: 60px;
+    /* Espaço entre colunas */
+}
+
+.footer-column {
+    flex: 1 1 200px;
+    /* Cresce até 200px mínimo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.footer-column h1 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column p {
+    font-size: 12px;
+    margin: 2px;
+}
+
+.footer-column a {
+    color: white;
+    font-size: 12px;
+    margin: 2px;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+/* Redes sociais no rodapé */
+.redes-sociais {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Imagem das redes sociais */
+.redes-sociais img {
+    width: 300px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Logo do rodapé */
+.footer-logo img {
+    width: 60px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Linha branca do rodapé */
+.linha-rodape {
+    width: 90%;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 20px 0;
+}
+
+/* Parte inferior do rodapé */
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+}

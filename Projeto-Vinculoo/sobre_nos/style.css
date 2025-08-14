@@ -1,0 +1,664 @@
+/* RESET E CONFIGURAÇÕES GLOBAIS */
+* {
+  margin: 0;
+  /* Remove todas as margens externas padrão dos elementos */
+  padding: 0;
+  /* Remove todo o preenchimento interno padrão dos elementos */
+  box-sizing: border-box;
+  /* Faz com que a largura e altura totais de um elemento incluam o padding e a borda */
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  /* Define a família de fontes padrão para toda a página */
+  background-color: #91D1DC;
+  /* Define a cor de fundo do corpo da página */
+  overflow-x: hidden;
+  /* Impede a rolagem horizontal, escondendo qualquer conteúdo que transborde */
+  min-height: 100vh;
+  /* Define a altura mínima do corpo como 100% da altura da tela  */
+  display: flex;
+  /* Ativa o Flexbox para o corpo da página */
+  flex-direction: column;
+  /* Organiza os elementos em coluna */
+}
+
+/* CABEÇALHO */
+header {
+  background-color: #91D1DC;
+  /* Define a cor de fundo do cabeçalho */
+  position: fixed;
+  /* Fixa o cabeçalho na tela, para que ele não role com a página */
+  bottom: 0;
+  /* Posiciona o cabeçalho na parte inferior da tela */
+}
+
+.cabeçalho {
+  position: relative;
+  /* Posicionar elementos de forma absoluta er */
+  height: 100px;
+  /* Define a altura do cabeçalho */
+  background-color: #92D0DB;
+  /* Cor de fundo do cabeçalho */
+  display: flex;
+  /* Ativa o Flexbox: deixa itens flexíveis */
+  justify-content: center;
+  /* Centraliza o conteúdo na horizontal */
+  align-items: center;
+  /* Centraliza o conteúdo na vertical */
+}
+
+.logo {
+  max-height: 70px;
+  /* Define a altura máxima da logo */
+  width: 70px;
+  /* Define a largura da logo */
+}
+
+.icone-menu,
+.perfil {
+  position: absolute;
+  /* Permite posicionar fora do fluxo normal, relativo ao pai (.cabeçalho) */
+  bottom: 10px;
+  /* Alinha na parte inferior do cabeçalho */
+}
+
+.icone-menu {
+  left: 50px;
+  /* Define a distância da borda esquerda */
+}
+
+.perfil {
+  right: 50px;
+  /* Define a distância da borda direita */
+}
+
+.icone-menu img,
+.perfil img {
+  height: 65px;
+  /* Altura das imagens */
+  width: auto;
+  /* Largura automática, para manter a proporção */
+  object-fit: contain;
+  /* Garante que a imagem inteira apareça sem distorção */
+}
+
+
+/* MENU SIDEBAR */
+.sidebar {
+  position: fixed;
+  /* Fixa na tela durante a rolagem */
+  top: 0;
+  /* Alinha no topo da tela */
+  left: 0;
+  /* Alinha na lateral esquerda */
+  width: 220px;
+  /* Define a largura da sidebar */
+  height: 100%;
+  /* Ocupa 100% da altura da tela */
+  background-color: #92D0DB;
+  /* Cor de fundo */
+  padding-top: 20px;
+  /* Espaço interno no topo */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  /* Sombra lateral para dar profundidade */
+  transition: transform 0.3s ease;
+  /* Efeito suave de transição para abrir/fechar */
+  z-index: 999;
+  /* Garante que a sidebar fique acima dos outros elementos */
+}
+
+.sidebar.oculto {
+  transform: translateX(-100%);
+  /* Move a sidebar para a esquerda, para fora da tela */
+}
+
+.logo-sidebar {
+  text-align: center;
+  /* Centraliza o conteúdo horizontalmente */
+  margin-bottom: 20px;
+  /* Espaço na parte inferior */
+  padding: 10px;
+  /* Espaço interno */
+  border-radius: 10px;
+  /* Bordas arredondadas */
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  /* Define a fonte para os títulos h2 */
+  color: #ffffff;
+  /* Cor do texto */
+  font-size: 26px;
+  /* Tamanho da fonte */
+}
+
+.sidebar ul {
+  list-style: none;
+  /* Remove os marcadores (bolinhas) da lista */
+  padding: 0;
+  /* Remove o preenchimento interno */
+  margin: 0;
+  /* Remove a margem externa */
+}
+
+.sidebar li {
+  padding: 12px 16px;
+  /* Espaçamento interno (vertical e horizontal) */
+  display: flex;
+  /* Ativa o Flexbox para alinhar ícone e texto */
+  align-items: center;
+  /* Centraliza os itens verticalmente */
+}
+
+.sidebar li a {
+  color: #000;
+  /* Cor do texto dos links */
+  text-decoration: none;
+  /* Remove o sublinhado dos links */
+  display: flex;
+  /* Ativa o Flexbox */
+  align-items: center;
+  /* Centraliza o ícone e o texto na vertical */
+  gap: 10px;
+  /* Espaço entre o ícone e o texto */
+  width: 100%;
+  /* Ocupa toda a largura do item da lista */
+  font-family: "Nunito", sans-serif;
+  /* Define a fonte */
+}
+
+.sidebar li a:hover {
+  background-color: #C5E8EE;
+  /* Cor de fundo ao passar o mouse */
+  border-radius: 5px;
+  /* Bordas arredondadas */
+}
+
+.sidebar li img {
+  height: 30px;
+  /* Altura dos ícones */
+  width: 30px;
+  /* Largura dos ícones */
+  border-radius: 5px;
+  /* Bordas arredondadas */
+}
+
+/* CONTEÚDO DA PÁGINA "SOBRE" */
+.linha-rodape {
+  width: 100%;
+  /* Define a largura da linha como 100% do container pai */
+  height: 1px;
+  /* Define a altura (espessura) da linha */
+  background-color: #ffffff;
+  /* Define a cor da linha */
+  margin: 20px 0;
+  /* Adiciona margem vertical (20px em cima e embaixo, 0 nos lados) */
+  position: relative;
+  /* Permite o uso de propriedades de posicionamento como 'left' */
+  left: 12px;
+  /* Desloca a linha 12px para a direita de sua posição original */
+}
+
+.contador {
+  font-size: 48px;
+  /* Tamanho da fonte do contador */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  color: #2d89ef;
+  /* Cor do texto */
+  border-color: #2d89ef;
+  /* Cor da borda */
+}
+
+.container {
+  display: flex;
+  /* Ativa o Flexbox */
+  justify-content: flex-start;
+  /* Alinha os itens à esquerda do container */
+  position: relative;
+  /* Permite ajustar a posição do container */
+  left: -45%;
+  /* Desloca o container 45% do seu tamanho para a esquerda */
+}
+
+.imagem {
+  width: 70px;
+  /* Define uma largura fixa para a imagem */
+}
+
+.sobre img {
+  width: auto;
+  /* A largura se ajusta automaticamente para manter a proporção da imagem */
+}
+
+.empresa img {
+  width: 450px;
+  /* Define a largura da imagem */
+  position: relative;
+  /* Permite ajustar a posição */
+  top: 150px;
+  /* Desloca a imagem 150px para baixo */
+  left: 20%;
+  /* Desloca a imagem 20% da largura do container pai para a direita */
+}
+
+.missao h1 {
+  text-align: left;
+  /* Alinha o texto à esquerda */
+  font-size: 25px;
+  /* Tamanho da fonte */
+  font-family: "Nunito", sans-serif;
+  /* Define a fonte */
+  position: relative;
+  /* Permite ajustar a posição */
+  left: 50%;
+  /* Desloca o título 50% para a direita */
+  top: -100px;
+  /* Desloca o título 100px para cima */
+  color: #162144;
+  /* Cor do texto */
+}
+
+.missao p {
+  text-align: left;
+  /* Alinha o texto à esquerda */
+  font-family: "Nunito", sans-serif;
+  /* Define a fonte */
+  position: relative;
+  /* Permite ajustar a posição */
+  left: 50%;
+  /* Desloca o parágrafo 50% para a direita */
+  top: -80px;
+  /* Desloca o parágrafo 80px para cima */
+  letter-spacing: -0.5px;
+  /* Diminui o espaçamento entre as letras */
+  line-height: 1.3;
+  /* Define a altura da linha, controlando o espaçamento entre as linhas do texto */
+}
+
+.nossa h1 {
+  text-align: left;
+  /* Alinha o texto à esquerda */
+  font-size: 25px;
+  /* Tamanho da fonte */
+  font-family: "Nunito", sans-serif;
+  /* Define a fonte */
+  position: relative;
+  /* Permite ajustar a posição */
+  right: -20%;
+  /* Desloca o título 20% para a direita */
+  top: 80px;
+  /* Desloca o título 80px para baixo */
+  color: #162144;
+  /* Cor do texto */
+}
+
+.nossa p {
+  text-align: left;
+  /* Alinha o texto à esquerda */
+  font-family: "Nunito", sans-serif;
+  /* Define a fonte */
+  position: relative;
+  /* Permite ajustar a posição */
+  right: -20%;
+  /* Desloca o parágrafo 20% para a direita */
+  top: 100px;
+  /* Desloca o parágrafo 100px para baixo */
+  letter-spacing: -0.5px;
+  /* Diminui o espaçamento entre as letras */
+  line-height: 1.4;
+  /* Define a altura da linha */
+}
+
+.desde p {
+  text-align: left;
+  /* Alinha o texto à esquerda */
+  font-family: "Nunito", sans-serif;
+  /* Define a fonte */
+  position: relative;
+  /* Permite ajustar a posição */
+  right: -20%;
+  /* Desloca o parágrafo 20% para a direita */
+  top: 120px;
+  /* Desloca o parágrafo 120px para baixo */
+  letter-spacing: -0.5px;
+  /* Diminui o espaçamento entre as letras */
+  line-height: 1.4;
+  /* Define a altura da linha */
+}
+
+.ceo img {
+  width: 450px;
+  /* Define a largura da imagem */
+  position: relative;
+  /* Permite ajustar a posição */
+  top: -440px;
+  /* Desloca a imagem 440px para cima */
+  left: 60%;
+  /* Desloca a imagem 60% para a direita */
+}
+
+/* SEÇÃO DE NÚMEROS E CARDS */
+.numeros-hubspot {
+  background-color: #def3f6;
+  /* Cor de fundo da seção */
+  padding: 60px 0;
+  /* Adiciona 60px de preenchimento vertical (em cima e embaixo) */
+  position: relative;
+  /* Permite ajustar a posição */
+  top: 150px;
+  /* Desloca a seção 150px para baixo */
+}
+
+.numeros-hubspot h2 {
+  text-align: center;
+  /* Centraliza o texto do título */
+  font-size: 40px;
+  /* Tamanho da fonte */
+  color: #162144;
+  /* Cor do texto */
+}
+
+.card-container {
+  display: flex;
+  /* Ativa o Flexbox para alinhar os cards */
+  justify-content: center;
+  /* Centraliza os cards horizontalmente */
+  gap: 30px;
+  /* Cria um espaço de 30px entre cada card */
+  flex-wrap: wrap;
+  /* Permite que os cards quebrem para a próxima linha em telas menores */
+}
+
+.card {
+  background-color: white;
+  /* Cor de fundo do card */
+  border-radius: 16px;
+  /* Bordas arredondadas */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* Sombra sutil para dar elevação */
+  width: 260px;
+  /* Largura do card */
+  padding: 30px 20px;
+  /* Preenchimento interno (vertical e horizontal) */
+  text-align: center;
+  /* Centraliza todo o texto dentro do card */
+  transition: transform 0.2s;
+  /* Efeito suave de transição na propriedade 'transform' */
+  position: relative;
+  /* Permite ajustar a posição */
+  top: -180px;
+  /* Desloca o card 180px para cima */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  /* Ao passar o mouse, move o card 5px para cima */
+}
+
+.card img {
+  width: 100px;
+  /* Largura da imagem dentro do card */
+  height: auto;
+  /* Altura automática para manter proporção */
+  margin-bottom: 20px;
+  /* Espaço abaixo da imagem */
+}
+
+.card h3 {
+  font-size: 18px;
+  /* Tamanho da fonte do título do card */
+  margin-bottom: 10px;
+  /* Espaço abaixo do título */
+  color: #000;
+  /* Cor do texto */
+}
+
+.card a {
+  font-weight: bold;
+  /* Texto do link em negrito */
+  color: #000;
+  /* Cor do texto do link */
+  text-decoration: underline;
+  /* Adiciona um sublinhado ao link */
+  font-size: 14px;
+  /* Tamanho da fonte do link */
+}
+
+.card a:hover {
+  color: #91D1DC;
+  /* Muda a cor do link ao passar o mouse */
+}
+
+/* FORMULÁRIO TRABALHE CONOSCO */
+.form-trampo {
+  background-color: white;
+  /* Cor de fundo do formulário */
+  width: 400px;
+  /* Largura do container do formulário */
+  margin: 60px auto;
+  /* Margem vertical de 60px e centralização horizontal ('auto') */
+  padding: 30px;
+  /* Preenchimento interno */
+  border-radius: 15px;
+  /* Bordas arredondadas */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  /* Sombra para destacar o formulário */
+  font-family: 'Nunito', sans-serif;
+  /* Define a fonte */
+  text-align: center;
+  /* Centraliza o texto do título */
+}
+
+.contratando h2 {
+  margin-bottom: 20px;
+  /* Espaço abaixo do título "Estamos Contratando" */
+}
+
+.form-trampo form {
+  display: flex;
+  /* Ativa o Flexbox */
+  flex-direction: column;
+  /* Organiza os campos do formulário em uma coluna */
+}
+
+.form-trampo label {
+  margin: 10px 0 5px;
+  /* Margem (topo, horizontal, baixo) para o rótulo */
+  text-align: left;
+  /* Alinha o texto do rótulo à esquerda */
+  color: #555;
+  /* Cor do texto do rótulo */
+  font-size: 14px;
+  /* Tamanho da fonte */
+}
+
+.form-trampo input {
+  padding: 10px;
+  /* Preenchimento interno dos campos de texto */
+  border: 1px solid #ccc;
+  /* Borda cinza clara */
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  outline: none;
+  /* Remove a borda de foco padrão do navegador */
+  font-size: 14px;
+  /* Tamanho da fonte do texto digitado */
+}
+
+.form-trampo input[type="file"] {
+  border: none;
+  /* Remove a borda específica do campo de upload de arquivo */
+}
+
+.form-trampo button {
+  margin-top: 20px;
+  /* Espaço acima do botão */
+  background-color: #91D1DC;
+  /* Cor de fundo do botão */
+  color: white;
+  /* Cor do texto do botão */
+  padding: 12px;
+  /* Preenchimento interno do botão */
+  border: none;
+  /* Remove a borda do botão */
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  cursor: pointer;
+  /* Muda o cursor para uma mãozinha, indicando que é clicável */
+  font-weight: bold;
+  /* Texto em negrito */
+  transition: background-color 0.3s ease;
+  /* Efeito suave de transição para a cor de fundo */
+}
+
+.form-trampo button:hover {
+  background-color: #005960;
+  /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* RODAPÉ (JÁ COMENTADO NO EXEMPLO) */
+footer {
+  background-color: #91D1DC;
+  /* Cor de fundo do rodapé */
+  padding: 10px;
+  /* Preenchimento interno */
+  display: flex;
+  /* Ativa o Flexbox */
+  flex-direction: column;
+  /* Organiza os itens em uma coluna */
+  align-items: center;
+  /* Centraliza os itens horizontalmente */
+  font-family: "Nunito", sans-serif;
+  /* Define a fonte */
+  margin-top: 100px;
+  /* Espaço acima do rodapé */
+}
+
+.footer-container {
+  display: flex;
+  /* Ativa o Flexbox */
+  flex-wrap: wrap;
+  /* Permite que as colunas quebrem a linha em telas menores */
+  justify-content: center;
+  /* Centraliza o conjunto de colunas */
+  align-items: flex-start;
+  /* Alinha as colunas pelo topo */
+  padding: 40px 20px;
+  /* Preenchimento interno */
+  text-align: center;
+  /* Centraliza o texto */
+  gap: 60px;
+  /* Espaço entre as colunas */
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  /* Define que a coluna pode crescer, mas tem uma base de 200px */
+  display: flex;
+  /* Ativa o Flexbox */
+  flex-direction: column;
+  /* Itens da coluna empilhados verticalmente */
+  align-items: center;
+  /* Centraliza o conteúdo da coluna */
+  text-align: center;
+  /* Centraliza o texto */
+  color: white;
+  /* Cor do texto */
+  padding: 10px;
+  /* Preenchimento interno */
+}
+
+.footer-column h1 {
+  font-size: 16px;
+  /* Tamanho da fonte do título da coluna */
+  margin-bottom: 10px;
+  /* Espaço abaixo do título */
+}
+
+.footer-column p {
+  font-size: 12px;
+  /* Tamanho da fonte dos parágrafos */
+  margin: 2px;
+  /* Margem pequena */
+}
+
+.footer-column a {
+  color: white;
+  /* Cor do texto dos links */
+  font-size: 12px;
+  /* Tamanho da fonte */
+  margin: 2px;
+  /* Margem pequena */
+  text-decoration: none;
+  /* Remove o sublinhado */
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+  /* Adiciona sublinhado ao passar o mouse */
+}
+
+.redes-sociais {
+  width: 100%;
+  /* Ocupa toda a largura disponível */
+  display: flex;
+  /* Ativa o Flexbox */
+  justify-content: center;
+  /* Centraliza os ícones */
+  gap: 20px;
+  /* Espaço entre os ícones */
+  margin-bottom: -20px;
+  /* Margem inferior negativa */
+  margin-top: 50px;
+  /* Margem superior */
+}
+
+.redes-sociais img {
+  width: 300px;
+  /* Largura da imagem das redes */
+  height: 50px;
+  /* Altura da imagem */
+  object-fit: contain;
+  /* Garante que a imagem caiba sem distorcer */
+}
+
+.footer-logo img {
+  width: 60px;
+  /* Largura da logo */
+  height: 50px;
+  /* Altura da logo */
+  object-fit: contain;
+  /* Garante que a imagem caiba sem distorcer */
+}
+
+.linha-rodape {
+  width: 90%;
+  /* Largura de 90% do container pai */
+  height: 1px;
+  /* Espessura da linha */
+  background-color: #ffffff;
+  /* Cor da linha */
+  margin: 20px 0;
+  /* Margem vertical */
+}
+
+.footer-bottom {
+  width: 100%;
+  /* Ocupa toda a largura */
+  display: flex;
+  /* Ativa o Flexbox */
+  justify-content: center;
+  /* Centraliza o conteúdo */
+  align-items: center;
+  /* Alinha verticalmente */
+  gap: 10px;
+  /* Espaço entre os itens */
+  text-align: center;
+  /* Centraliza o texto */
+  font-size: 12px;
+  /* Tamanho da fonte */
+  color: white;
+  /* Cor do texto */
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <link rel="icon" type="image/x-icon" href="../home/img/favicon.png">
+    <link rel="stylesheet" href="../adicionar_contato/style.css">
+    <title>Adicionar Contato</title>
+</head>
+
+<body>
+    <!-- Cabeçalho da página -->
+    <header class="cabeçalho">
+        <a class="icone-menu" id="menu-icon">
+            <img src="../home/img/icone-menu.png" alt="menu">
+        </a>
+        <img class="logo" src="../home/img/logo.png" alt="logo do site">
+        <a class="perfil" href="../usuario/index.html"><img src="../home/img/perfil.png" alt="Imagem perfil"></a>
+    </header>
+
+    <!-- Sidebar (menu lateral oculto) -->
+    <aside id="sidebar" class="sidebar oculto">
+        <div class="logo-sidebar"><img src="../home/img/logo.png" alt="logo" width="80px"><h2 class="escritaLogo">Vinculoo</h2></div>
+        <ul>
+            <li><a href="../home/index.html"><img src="../home/img/menu-principal.png" alt="">Menu Principal</a></li>
+            <li><a href="../adicionar_contato/index.html"><img src="../home/img/adicionar.png"> Adicionar Contato</a>
+            </li>
+            <li><a href="../remover_contato/index.html"><img src="../home/img/remover.png"> Remover Contato</a></li>
+            <li><a href="../editar_contato/index.html"><img src="../home/img/editar.png"> Editar Contato</a></li>
+            <li><a href="../lista_de_contato/index.html"><img src="../home/img/listar.png"> Meus Contatos</a></li>
+        </ul>
+    </aside>
+
+    <!-- Título principal -->
+    <div class="titulo">
+        <h1>Adicionar Contato ⟶</h1>
+        <div></div> <!-- Para dar espaço correto e ficar padronizado com os títulos das outras páginas -->
+    </div>
+
+    <!-- Formulário de cadastro -->
+    <div class="form-container">
+        <div class="profile-pic"></div> <!-- Placeholder para a imagem de perfil -->
+        <form id="form-contato" enctype="multipart/form-data">
+            <label>Foto do Contato</label>
+            <!-- Upload de imagem -->
+            <input type="file" class="foto" id="foto" name="foto" accept="image/*"><br>
+            <img id="preview" src="../home/img/perfil.png" alt="Preview" width="120px">
+            <p>Itens obrigatórios *</p>
+            <!-- Campos obrigatórios -->
+            <input type="text" id="nome" name="Nome" placeholder="Nome *">
+            <input type="tel" id="telefone" name="Telefone" placeholder="Telefone *">
+            <input type="email" id="email" name="Email" placeholder="Email *">
+            <input type="text" id="parentesco" name="Parentesco" placeholder="Parentesco *">
+            <!-- Campos opcionais -->
+            <input type="text" id="empresa" name="Empresa" placeholder="Empresa">
+            <input type="text" id="cargo" name="Cargo" placeholder="Cargo">
+            <input type="date" id="aniversario" name="Aniversario" placeholder="Aniversário">
+            <!-- Botão de enviar -->
+            <button type="submit" class="botao">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="redes-sociais">
+                <img src="../remover_contato/img/redes.png" alt="Redes Sociais">
+            </div>
+
+            <div class="footer-column">
+                <h1>Escritório Vinculoo no Brasil</h1>
+                <p>R. Boa Vista, 825 - Boa Vista,</p>
+                <p>São Caetano do Sul - SP, 09572-300</p>
+            </div>
+
+            <div class="footer-column">
+                <h1>Para você</h1>
+                <a href="../cadastro/index.html">Juntar</a>
+                <a href="../login/index.html">Entrar</a>
+                <a href="../usuario/index.html">Sua conta</a>
+              </div>
+        
+              <div class="footer-column">
+                <h1>Nossa empresa</h1>
+                <a href="../sobre_nos/index.html">Sobre nós</a>
+                <a href="../sobre_nos/index.html">Estamos contratando!</a>
+                <a href="#">Política de Privacidade</a>
+              </div>
+        </div>
+
+        <div class="linha-rodape"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="../home/img/logo.png" alt="Logo">
+            </div>
+            <p>© Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script para funcionamento da página -->
+    <script>
+        //JS DO SIDEBAR
+        const sidebar = document.getElementById("sidebar"); //Pega o elemento do sidebar
+        const menuIcon = document.getElementById("menu-icon"); //Pega o ícone do menu (três linhas ou botão de abrir menu)
+
+        //Adiciona um evento de clique no ícone do menu
+        menuIcon.addEventListener("click", function (event) {
+            event.stopPropagation(); // Evita que o clique feche o menu
+            sidebar.classList.toggle("oculto"); //Adiciona ou remove a classe "oculto" no sidebar, que faz o menu aparecer ou sumir
+        });
+
+        // Adiciona um evento de clique em qualquer parte da página
+        document.addEventListener("click", function (event) {
+            const clicouFora = !sidebar.contains(event.target) && !menuIcon.contains(event.target); //Verifica se clicou fora do sidebar e do ícone do menu
+            if (clicouFora) { //Se clicou fora, adiciona a classe "oculto" no sidebar para fechar o menu
+                sidebar.classList.add("oculto");
+            }
+        });
+
+        // CAPTURA E ENVIO DO FORMULÁRIO
+        const form = document.getElementById("form-contato"); // Captura o formulário pelo id
+
+        // CAPTURA O INPUT FOTO E O PREVIEW
+        const fotoInput = document.getElementById("foto"); // Pega o input="file" onde o usuário seleciona a foto
+        const preview = document.getElementById("preview"); //Pega a tag <img> onde a foto será exibida como pré-visualização
+
+        // PREVIEW DA IMAGEM
+        fotoInput.addEventListener("change", function () {
+            //Sempre que o usuário selecionar (ou mudar) um arquivo, esse código roda
+            const file = fotoInput.files[0]; //Pega o primeiro arquivo que foi selecionado
+            if (file) {
+                // Se o usuário selecionou algum arquivo...
+                const reader = new FileReader(); //Cria um objeto que vai ler arquivos
+                // Quando o arquivo terminar de ser lido...
+                reader.onload = function (e) {
+                    preview.src = e.target.result; // O conteúdo do arquivo vira o "src" da imagem de preview, assim a imagem aparece na tela antes de enviar
+                };
+                reader.readAsDataURL(file); // Manda o reader ler o arquivo como uma URL de dados, isso permite exibir a imagem diretamente no navegador sem precisar enviar pro servidor
+            } else {
+                // Se nenhum arquivo foi selecionado, ou se apagou a escolha
+                preview.src = "../home/img/perfil.png"; // Volta para a imagem padrão
+            }
+        });
+
+        // Adiciona um evento quando um formulário for enviado
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Impede o comportamento padrão do formulário (que seria recarregar a página)
+
+            //Captura valores dos campos e remove espaços extras
+            const nome = document.getElementById("nome").value.trim();
+            const telefone = document.getElementById("telefone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const parentesco = document.getElementById("parentesco").value.trim();
+
+            // Verifica se os campos obrigatórios foram preenchidos
+            if (!nome || !telefone || !email || !parentesco) {
+                Swal.fire({
+                    title: 'Campos obrigatórios!',
+                    text: 'Preencha Nome, Telefone, Email e Parentesco para continuar.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+                return; // Interrompe aqui se algum campo obrigatório estiver vazio
+            }
+
+            const formData = new FormData(form); // Prepara dados para envio, incluindo arquivos
+
+            // Envia dados para a API usando fetch
+            fetch("http://127.0.0.1:3000/contato", {
+                method: "POST", // Método POST → para criar um novo contato
+                body: formData  // Envia os dados (incluindo arquivos)
+            })
+                .then(response => response.json()) // Converte a resposta em JSON
+                .then(data => {
+                    // Se der certo mostra um alerta de sucesso
+                    Swal.fire({
+                        title: 'Salvo!',
+                        text: 'Seu contato foi adicionado com sucesso!',
+                        icon: 'success'
+                    });
+                    form.reset(); // Limpa todos os campos do formulário
+                    preview.src = "../home/img/perfil.png"; // Reseta o preview da foto
+                })
+                .catch(error => {
+                    // Se der erro mostra um alerta de erro
+                    console.error('Erro ao adicionar contato:', error);
+                    Swal.fire({
+                        title: 'Erro',
+                        text: 'Não foi possível salvar o contato.',
+                        icon: 'error'
+                    });
+                });
+        });
+
+
+        // MÁSCARA DO TELEFONE
+        const telefoneInput = document.getElementById('telefone'); //Captura o campo de telefone pelo id
+
+        // Define as opções de máscara
+        const maskOptions = {
+            mask: [
+                { mask: '(00) 0000-0000' }, // Para Telefone fixo
+                { mask: '(00) 00000-0000' } // Para celular
+            ]
+        };
+
+        const mask = IMask(telefoneInput, maskOptions); // Aplica a máscara no campo de telefone usando IMask
+    </script>
+</body>
+
+</html>

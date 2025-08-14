@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="../home/style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- Cabeçalho da página -->
+    <header class="cabeçalho">
+        <a class="icone-menu" id="menu-icon">
+            <img src="img/icone-menu.png" alt="menu">
+        </a>
+        <img class="logo" src="img/logo.png" alt="logo do site">
+        <a class="perfil" href="../usuario/index.html"><img src="img/perfil.png" alt="Imagem perfil"></a>
+    </header>
+
+    <!-- Sidebar (menu lateral oculto) -->
+    <aside id="sidebar" class="sidebar oculto">
+        <div class="logo-sidebar"><img src="img/logo.png" alt="logo" width="80px"><h2>Vinculoo</h2></div>
+        <ul>
+            <li><a href="../home/index.html"><img src="img/menu-principal.png" alt="">Menu Principal</a></li>
+            <li><a href="../adicionar_contato/index.html"><img src="img/adicionar.png"> Adicionar Contato</a></li>
+            <li><a href="../remover_contato/index.html"><img src="img/remover.png"> Remover Contato</a></li>
+            <li><a href="../editar_contato/index.html"><img src="img/editar.png"> Editar Contato</a></li>
+            <li><a href="../lista_de_contato/index.html"><img src="img/listar.png"> Meus Contatos</a></li>
+        </ul>
+    </aside>
+
+    <!-- Título principal -->
+    <h1>Bem Vindo(a) "nome"</h1>
+    <p class="escritaBotao">Que bom ter você aqui! <br> Com a Agenda Virtual Vinculoo, você gerencia <br> seus contatos com facilidade e mantém tudo sempre
+        organizado.</p>
+
+    <!-- Barra de busca -->
+    <div class="centraliza">
+        <div class="barraDeBusca">
+            <img src="img/lupa.png" alt="lupa" />
+            <input type="text" id="barraPesquisaHome" class="textoDaBarra"
+                placeholder="Procure algum contato salvo..." />
+        </div>
+    </div>
+
+    <!-- Área dos botões principais -->
+    <div class="centraliza">
+        <div class="botao">
+            <a href="../adicionar_contato/index.html"><img src="img/adicionar.png" alt="botão adicionar contato"></a>
+            <p class="escritaBotao">Adicionar</p>
+        </div>
+
+        <div class="botao">
+            <a href="../remover_contato/index.html"><img src="img/remover.png" alt="botão remover contato"></a>
+            <p class="escritaBotao">Remover</p>
+        </div>
+
+        <div class="botao">
+            <a href="../editar_contato/index.html"><img src="img/editar.png" alt="botão editar contato"></a>
+            <p class="escritaBotao">Editar</p>
+        </div>
+    </div>
+
+    <div class="centraliza">
+        <div class="botao">
+            <a href="#" id="botao-apagar"><img src="img/apagar.png" alt="botão apagar lista"></a>
+            <p class="escritaBotao">Apagar Lista</p>
+        </div>
+
+        <div class="botao">
+            <a href="../lista_de_contato/index.html"><img src="img/listar.png" alt="botão ver lista"></a>
+            <p class="escritaBotao">Ver Lista</p>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="redes-sociais">
+                <img src="../remover_contato/img/redes.png" alt="Redes Sociais">
+            </div>
+
+            <div class="footer-column">
+                <h1>Escritório Vinculoo no Brasil</h1>
+                <p>R. Boa Vista, 825 - Boa Vista,</p>
+                <p>São Caetano do Sul - SP, 09572-300</p>
+            </div>
+
+            <div class="footer-column">
+                <h1>Para você</h1>
+                <a href="../cadastro/index.html">Juntar</a>
+                <a href="../login/index.html">Entrar</a>
+                <a href="../usuario/index.html">Sua conta</a>
+              </div>
+        
+              <div class="footer-column">
+                <h1>Nossa empresa</h1>
+                <a href="../sobre_nos/index.html">Sobre nós</a>
+                <a href="../sobre_nos/index.html">Estamos contratando!</a>
+                <a href="#">Política de Privacidade</a>
+              </div>
+        </div>
+
+        <div class="linha-rodape"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="../home/img/logo.png" alt="Logo">
+            </div>
+            <p>© Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- Script para funcionamento da página -->
+    <script>
+        //JS DO SIDEBAR
+        const sidebar = document.getElementById("sidebar"); //Pega o elemento do sidebar
+        const menuIcon = document.getElementById("menu-icon"); //Pega o ícone do menu (três linhas ou botão de abrir menu)
+
+        //Adiciona um evento de clique no ícone do menu
+        menuIcon.addEventListener("click", function (event) {
+            event.stopPropagation(); // Evita que o clique feche o menu
+            sidebar.classList.toggle("oculto"); //Adiciona ou remove a classe "oculto" no sidebar, que faz o menu aparecer ou sumir
+        });
+
+        // Adiciona um evento de clique em qualquer parte da página
+        document.addEventListener("click", function (event) {
+            const clicouFora = !sidebar.contains(event.target) && !menuIcon.contains(event.target); //Verifica se clicou fora do sidebar e do ícone do menu
+            if (clicouFora) { //Se clicou fora, adiciona a classe "oculto" no sidebar para fechar o menu
+                sidebar.classList.add("oculto");
+            }
+        });
+
+        //BOTÃO EXCLUIR LISTA
+        const botaoApagar = document.getElementById('botao-apagar'); //Pega o botão "Apagar Lista"
+
+        //Adiciona um evento de clique no botão
+        botaoApagar.addEventListener('click', function (e) {
+            e.preventDefault(); //Impede o comportamento padrão do botão (como enviar um formulário)
+
+            //Mostra um alerta de confirmação usando SweetAlert2
+            Swal.fire({
+                title: 'Tem certeza?', //Título do alerta
+                text: "Essa ação vai apagar TODOS os seus contatos e não poderá ser desfeita!", // Texto explicativo
+                icon: 'warning', // Ícone de aviso
+                showCancelButton: true, // Mostra botão de cancelar
+                confirmButtonColor: '#d33', // Cor do botão "Confirmar"
+                cancelButtonColor: '#28bdd7', // Cor do botão "Cancelar"
+                confirmButtonText: 'Sim, apagar tudo!', // Texto do botão confirmar
+                cancelButtonText: 'Cancelar' // Texto do botão cancelar
+            }).then((result) => {
+                //Se o usuário confirmou
+                if (result.isConfirmed) {
+                    //Faz uma requisição DELETE para o servidor, apagando todos os contatos
+                    fetch('http://127.0.0.1:3000/contatos', {
+                        method: 'DELETE'
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                //Se deu certo, mostra mensagem de sucesso
+                                Swal.fire(
+                                    'Apagado!',
+                                    'Todos os seus contatos foram removidos com sucesso.',
+                                    'success'
+                                ).then(() => {
+                                    window.location.reload(); //Atualiza a página para refletir as mudanças
+                                });
+                            } else {
+                                //Se deu erro na resposta, mostra mensagem de erro
+                                Swal.fire(
+                                    'Erro!',
+                                    'Não foi possível apagar os contatos.',
+                                    'error'
+                                );
+                            }
+                        })
+                        .catch(error => {
+                            //Se der erro na conexão (servidor offline ou erro na rede)
+                            console.error('Erro:', error);
+                            Swal.fire(
+                                'Erro!',
+                                'Ocorreu um problema na conexão com o servidor.',
+                                'error'
+                            );
+                        });
+                }
+            });
+        });
+
+        //BARRA DE PESQUISA
+        const barraPesquisaHome = document.getElementById('barraPesquisaHome'); //Pega o campo da barra de pesquisa
+
+        //Adiciona um evento ao pressionar qualquer tecla no campo de busca
+        barraPesquisaHome.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                //Quando apertar ENTER
+                e.preventDefault(); //Impede o envio de formulários ou ações padrão
+                const texto = barraPesquisaHome.value.trim(); //Pega o texto digitado e remove espaços extras
+                if (texto) {
+                    //Se tem texto, redireciona para a página de contatos com o parâmetro de pesquisa na URL
+                    window.location.href = `../lista_de_contato/index.html?pesquisa=${encodeURIComponent(texto)}`;
+                } else {
+                    //Se não digitou nada, apenas vai para a lista sem filtro
+                    window.location.href = `../lista_de_contato/index.html`;
+                }
+            }
+        });
+
+        //SEJA BEM-VINDO(A)
+        const nomeUsuario = localStorage.getItem('nome') || 'usuário'; //Busca o nome do usuário no localStorage, se não tiver, usa "usuário"
+
+        const titulo = document.querySelector('h1'); //Pega o elemento <h1> que mostra o título da página
+        titulo.textContent = `Bem-vindo(a) ${nomeUsuario}`; //Atualiza o texto do título com o nome do usuário
+    </script>
+</body>
+</html>

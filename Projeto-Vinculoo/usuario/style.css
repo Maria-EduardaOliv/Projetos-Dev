@@ -1,0 +1,264 @@
+/* RESET E CONFIGURAÇÕES GLOBAIS */
+body,
+html {
+    height: 100%;
+    /* Garante que o html e o body ocupem 100% da altura da tela */
+    margin: 0;
+    /* Remove margens externas padrão */
+    padding: 0;
+    /* Remove preenchimento interno padrão */
+    background-color: #F8FFFF;
+    /* Cor de fundo geral */
+    font-family: "Nunito", sans-serif;
+    /* Fonte padrão para toda a página */
+}
+
+/* CABEÇALHO */
+.cabeçalho {
+    height: 100px;
+    /* Altura do cabeçalho */
+    background-color: #91D1DC;
+    /* Cor de fundo */
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: center;
+    /* Centraliza o conteúdo (logo) na horizontal */
+    align-items: center;
+    /* Centraliza o conteúdo na vertical */
+    position: relative;
+    /* Define um contexto de posicionamento para elementos filhos, como o ícone do menu */
+}
+
+.logo {
+    width: 70px;
+    /* Largura da logo */
+}
+
+.icone-menu {
+    position: absolute;
+    /* Posicionamento absoluto em relação ao '.cabeçalho' */
+    left: 50px;
+    /* Distância da borda esquerda */
+    bottom: 10px;
+    /* Distância da base */
+}
+
+.icone-menu img {
+    height: 65px;
+    /* Altura da imagem do ícone */
+}
+
+/* MENU SIDEBAR */
+.sidebar {
+    position: fixed;
+    /* Fixa a sidebar na tela, ela não rola com a página */
+    top: 0;
+    /* Alinha no topo da tela */
+    left: 0;
+    /* Alinha na lateral esquerda */
+    width: 400px;
+    /* Largura da sidebar */
+    height: 100%;
+    /* Ocupa 100% da altura da tela */
+    background-color: #A4D9E5;
+    /* Cor de fundo */
+    padding-top: 20px;
+    /* Espaçamento interno no topo */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    /* Sombra na lateral direita para dar profundidade */
+}
+
+.logo-sidebar {
+    text-align: center;
+    /* Centraliza o conteúdo */
+    margin-bottom: 20px;
+    /* Espaço abaixo da logo */
+    padding: 10px;
+    /* Espaço interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+}
+
+.sidebar ul {
+    list-style: none;
+    /* Remove os marcadores (bolinhas) da lista */
+    padding: 0;
+    /* Remove o preenchimento da lista */
+}
+
+.sidebar li {
+    padding: 12px 16px;
+    /* Espaçamento interno dos itens da lista */
+    display: flex;
+    /* Ativa o Flexbox */
+    align-items: center;
+    /* Alinha o conteúdo verticalmente */
+}
+
+.sidebar li a {
+    color: #000;
+    /* Cor do texto do link */
+    text-decoration: none;
+    /* Remove o sublinhado */
+    display: flex;
+    /* Ativa o Flexbox para alinhar ícone e texto */
+    align-items: center;
+    /* Alinha verticalmente */
+    gap: 10px;
+    /* Espaço entre o ícone e o texto */
+    width: 100%;
+    /* Faz o link ocupar toda a largura disponível */
+}
+
+.sidebar li a:hover {
+    background-color: #C5E8EE;
+    /* Cor de fundo ao passar o mouse */
+    border-radius: 5px;
+    /* Bordas arredondadas no efeito hover */
+}
+
+.sidebar li img {
+    height: 30px;
+    /* Altura dos ícones */
+    width: 30px;
+    /* Largura dos ícones */
+    border-radius: 5px;
+    /* Bordas arredondadas para os ícones */
+}
+
+/* ÁREA DE CONTEÚDO PRINCIPAL */
+.ola {
+    text-align: center;
+    /* Centraliza o texto de saudação */
+    font-family: "Montserrat", sans-serif;
+    /* Define a fonte */
+    margin-bottom: 40px;
+    /* Espaço abaixo */
+    margin-top: 20px;
+    /* Espaço acima */
+}
+
+.titulo-pagina {
+    font-family: "Montserrat", sans-serif;
+    /* Define a fonte */
+    font-size: 32px;
+    /* Tamanho da fonte do título */
+    margin: 40px 480px 20px;
+    /* Define as margens (topo, horizontal, base) */
+    text-align: left;
+    /* Alinha o texto à esquerda */
+}
+
+.content {
+    margin-left: 400px;
+    /* Empurra o conteúdo para a direita para não ficar atrás da sidebar de 400px */
+    padding: 40px;
+    /* Espaçamento interno da área de conteúdo */
+    display: flex;
+    /* Ativa o Flexbox */
+    flex-direction: column;
+    /* Organiza os itens em coluna */
+    align-items: center;
+    /* Centraliza os itens filhos (como o quadro de dados) horizontalmente */
+    flex-grow: 1;
+    /* Faz com que essa área ocupe o espaço restante */
+}
+
+.user-data {
+    background-color: #DEF3F6;
+    /* Cor de fundo do quadro de dados */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    padding: 40px;
+    /* Espaçamento interno */
+    width: 90%;
+    /* Largura de 90% do container '.content' */
+    max-width: 900px;
+    /* Largura máxima para não ficar excessivamente grande em telas largas */
+    display: grid;
+    /* Ativa o layout em grade (Grid) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Cria colunas responsivas: o navegador cria quantas colunas couberem, cada uma com no mínimo 280px, e elas se esticam para preencher o espaço */
+    gap: 20px 40px;
+    /* Espaçamento entre os itens da grade (20px vertical, 40px horizontal) */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+.field {
+    display: flex;
+    /* Ativa o Flexbox para cada campo */
+    flex-direction: column;
+    /* Organiza o label e o span/input em coluna */
+    gap: 5px;
+    /* Espaço entre o label e o dado */
+    background-color: #f7fdff;
+    /* Cor de fundo para destacar o campo */
+    padding: 15px;
+    /* Espaçamento interno do campo */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+}
+
+.field label {
+    font-weight: bold;
+    /* Texto do rótulo em negrito */
+    color: #333;
+    /* Cor do texto do rótulo */
+    font-size: 16px;
+    /* Tamanho da fonte */
+}
+
+.field span {
+    color: #555;
+    /* Cor do texto do dado */
+    font-size: 16px;
+    /* Tamanho da fonte */
+}
+
+.field input {
+    padding: 8px 12px;
+    /* Espaçamento interno do campo de edição */
+    border: none;
+    /* Remove a borda padrão */
+    border-radius: 25px;
+    /* Bordas arredondadas */
+    background-color: white;
+    /* Cor de fundo */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    /* Sombra interna sutil */
+    outline: none;
+    /* Remove a borda de foco ao clicar */
+    font-family: "Nunito", sans-serif;
+    /* Garante a mesma fonte do site */
+    font-size: 16px;
+    /* Tamanho da fonte */
+}
+
+.botao-editar {
+    margin-top: 30px;
+    /* Espaço acima do botão */
+    padding: 20px 40px;
+    /* Espaçamento interno (vertical e horizontal) */
+    background-color: #91D1DC;
+    /* Cor de fundo */
+    color: white;
+    /* Cor do texto */
+    border: none;
+    /* Sem borda */
+    border-radius: 40px;
+    /* Bordas bem arredondadas */
+    cursor: pointer;
+    /* Muda o cursor para uma mãozinha */
+    font-weight: bold;
+    /* Texto em negrito */
+    transition: background-color 0.3s;
+    /* Animação suave na mudança de cor */
+    font-size: 16px;
+    /* Tamanho da fonte */
+}
+
+.botao-editar:hover {
+    background-color: #7EC3CF;
+    /* Cor de fundo ao passar o mouse */
+}

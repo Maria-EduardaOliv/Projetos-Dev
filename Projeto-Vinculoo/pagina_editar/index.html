@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <link rel="icon" type="image/x-icon" href="../home/img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Editar Contato</title>
+</head>
+
+<body>
+    <!-- Cabeçalho da página -->
+    <header class="cabeçalho">
+        <a class="icone-menu" id="menu-icon">
+            <img src="../home/img/icone-menu.png" alt="menu">
+        </a>
+        <img class="logo" src="../home/img/logo.png" alt="logo do site">
+        <a class="perfil" href="../usuario/index.html"><img src="../home/img/perfil.png" alt="Imagem perfil"></a>
+    </header>
+
+    <!-- Sidebar (menu lateral oculto) -->
+    <aside id="sidebar" class="sidebar oculto">
+        <div class="logo-sidebar"><img src="../home/img/logo.png" alt="logo" width="80px">
+            <h2 class="escritaLogo">Vinculoo</h2>
+        </div>
+        <ul>
+            <li><a href="../home/index.html"><img src="../home/img/menu-principal.png" alt="">Menu Principal</a></li>
+            <li><a href="../adicionar_contato/index.html"><img src="../home/img/adicionar.png"> Adicionar Contato</a>
+            </li>
+            <li><a href="../remover_contato/index.html"><img src="../home/img/remover.png"> Remover Contato</a></li>
+            <li><a href="../editar_contato/index.html"><img src="../home/img/editar.png"> Editar Contato</a></li>
+            <li><a href="../lista_de_contato/index.html"><img src="../home/img/listar.png"> Meus Contatos</a></li>
+        </ul>
+    </aside>
+
+    <!-- Título principal -->
+    <h1 class="titulo">Editar Contato ⟶</h1>
+
+    <!-- Formulário para editar contato -->
+    <div class="card">
+        <h2>Revise e edite as informações</h2>
+
+        <form id="form-editar">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome">
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+
+            <label for="parentesco">Parentesco:</label>
+            <input type="text" id="parentesco">
+
+            <label for="empresa">Empresa:</label>
+            <input type="text" id="empresa">
+
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo">
+
+            <label for="aniversario">Aniversário:</label>
+            <input type="date" id="aniversario">
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="redes-sociais">
+                <img src="../remover_contato/img/redes.png" alt="Redes Sociais">
+            </div>
+
+            <div class="footer-column">
+                <h1>Escritório Vinculoo no Brasil</h1>
+                <p>R. Boa Vista, 825 - Boa Vista,</p>
+                <p>São Caetano do Sul - SP, 09572-300</p>
+            </div>
+
+            <div class="footer-column">
+                <h1>Para você</h1>
+                <a href="../cadastro/index.html">Juntar</a>
+                <a href="../login/index.html">Entrar</a>
+                <a href="../usuario/index.html">Sua conta</a>
+            </div>
+
+            <div class="footer-column">
+                <h1>Nossa empresa</h1>
+                <a href="../sobre_nos/index.html">Sobre nós</a>
+                <a href="../sobre_nos/index.html">Estamos contratando!</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+        </div>
+
+        <div class="linha-rodape"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-logo">
+                <img src="../home/img/logo.png" alt="Logo">
+            </div>
+            <p>© Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script para funcionamento da página -->
+    <script>
+        //JS DO SIDEBAR
+        const sidebar = document.getElementById("sidebar"); //Pega o elemento do sidebar
+        const menuIcon = document.getElementById("menu-icon"); //Pega o ícone do menu (três linhas ou botão de abrir menu)
+
+        //Adiciona um evento de clique no ícone do menu
+        menuIcon.addEventListener("click", function (event) {
+            event.stopPropagation(); // Evita que o clique feche o menu
+            sidebar.classList.toggle("oculto"); //Adiciona ou remove a classe "oculto" no sidebar, que faz o menu aparecer ou sumir
+        });
+
+        // Adiciona um evento de clique em qualquer parte da página
+        document.addEventListener("click", function (event) {
+            const clicouFora = !sidebar.contains(event.target) && !menuIcon.contains(event.target); //Verifica se clicou fora do sidebar e do ícone do menu
+            if (clicouFora) { //Se clicou fora, adiciona a classe "oculto" no sidebar para fechar o menu
+                sidebar.classList.add("oculto");
+            }
+        });
+
+        //Caminho para essa página
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        // Buscar o contato pelo id
+        fetch(`http://127.0.0.1:3000/contatos`)
+            .then(res => res.json()) // Convertemos a resposta para JSON
+            .then(contatos => {
+                // Procuramos o contato que tenha o mesmo id que foi passado na URL
+                const contato = contatos.find(c => c.id == id);
+
+                // Se o contato não for encontrado...
+                if (!contato) {
+                    // Mostra um alerta informando que o contato não foi encontrado
+                    alert("Contato não encontrado");
+                    // Redireciona o usuário de volta para a lista de contatos
+                    window.location.href = '../lista_de_contato/index.html';
+                    return; // Encerra a função aqui
+                }
+
+                // Se o contato foi encontrado, preenchemos os campos do formulário com seus dados
+                document.getElementById('nome').value = contato.Nome;
+                document.getElementById('telefone').value = contato.Telefone;
+                document.getElementById('email').value = contato.Email;
+                document.getElementById('parentesco').value = contato.Parentesco;
+                document.getElementById('empresa').value = contato.Empresa;
+                document.getElementById('cargo').value = contato.Cargo;
+                document.getElementById('aniversario').value = contato.Aniversario;
+            });
+
+
+        // Enviar as alterações
+        document.getElementById('form-editar').addEventListener('submit', function (e) {
+            e.preventDefault(); // Previne o envio padrão do formulário
+
+            // Criamos um objeto com os dados atualizados do contato a partir do formulário
+            const contatoAtualizado = {
+                Nome: document.getElementById('nome').value,
+                Telefone: document.getElementById('telefone').value,
+                Email: document.getElementById('email').value,
+                Parentesco: document.getElementById('parentesco').value,
+                Empresa: document.getElementById('empresa').value,
+                Cargo: document.getElementById('cargo').value,
+                Aniversario: document.getElementById('aniversario').value
+            };
+
+            // Requisição PUT para atualizar o contato com o ID correspondente
+            fetch(`http://127.0.0.1:3000/contatos/${id}`, {
+                method: 'PUT', 
+                headers: {
+                    'Content-Type': 'application/json' // Indicamos que os dados estão em formato JSON
+                },
+                body: JSON.stringify(contatoAtualizado) // Convertendo o objeto para JSON e enviando no corpo da requisição
+            })
+                .then(res => {
+                    // Se a resposta não for bem-sucedida, lançamos um erro
+                    if (!res.ok) {
+                        throw new Error('Erro na atualização');
+                    }
+                    return res.json(); // Caso contrário, convertemos a resposta para JSON
+                })
+                .then(() => {
+                    // Se tudo deu certo, mostramos um alerta de sucesso usando o SweetAlert
+                    Swal.fire({
+                        title: 'Atualizado!',
+                        text: 'O contato foi atualizado com sucesso.',
+                        icon: 'success',
+                        confirmButtonText: 'Fechar'
+                    }).then(() => {
+                        // Após fechar o alerta, redirecionamos para a página da lista de contatos
+                        window.location.href = '../lista_de_contato/index.html';
+                    });
+                })
+                .catch(err => {
+                    // Se ocorreu algum erro durante a requisição, mostramos um alerta de erro
+                    console.error('Erro ao atualizar:', err);
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: 'Não foi possível atualizar o contato.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                });
+        });
+
+        // MÁSCARA DO TELEFONE
+        const telefoneInput = document.getElementById('telefone'); //Captura o campo de telefone pelo id
+
+        // Define as opções de máscara
+        const maskOptions = {
+            mask: [
+                { mask: '(00) 0000-0000' }, // Para Telefone fixo
+                { mask: '(00) 00000-0000' } // Para celular
+            ]
+        };
+
+        const mask = IMask(telefoneInput, maskOptions); // Aplica a máscara no campo de telefone usando IMask
+    </script>
+</body>
+
+</html>
