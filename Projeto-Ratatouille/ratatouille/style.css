@@ -1,0 +1,257 @@
+/* cabeçalho */
+body {
+    margin: 0;
+    background-color: #9c2424;
+}
+
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    justify-content: space-between;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #6e0b0b;
+}
+
+.logo {
+    width: 600px;
+    margin-left: -150px;
+}
+
+.menu {
+    display: flex;
+    gap: 70px;
+    margin-right: 150px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+}
+
+.menu a:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* corpo */
+.titulo {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Playfair Display', serif;
+}
+
+.descricao-ratatouille {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding-top: 5px;
+    width: 70%;
+}
+
+.descricao-ratatouille img {
+    border-radius: 20px;
+    margin-right: 45px;
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.8);
+}
+
+.descricao-ratatouille p {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.texto {
+    text-align: center;
+}
+
+.texto h2 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 26px;
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    color: #6e0b0b;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Playfair Display', serif;
+}
+
+.quadro {
+    align-items: center;
+    background-color: rgb(255, 241, 226);
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.8);
+    padding: 60px 150px;
+    margin-top: 120px;
+    margin-bottom: 80px;
+}
+
+.quadro p {
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+.centraliza {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+.centraliza img {
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.ingrediente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.ingrediente p {
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.modo-preparo {
+    background-color: rgb(255, 241, 226);
+    padding: 40px 20px;
+    border-top: 5px solid #6e0b0b;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 100px;
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.8);
+}
+
+.modo-preparo h2 {
+    color: #8b1e1e;
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.tempo-preparo {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.lista-preparo {
+    counter-reset: step;
+    list-style: none;
+    padding-left: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.lista-preparo li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 18px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.lista-preparo li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background-color: #8b1e1e;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-size: 16px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #6e0b0b;
+    color: rgb(255, 255, 255);
+    font-family: 'Playfair Display', serif;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+
+.rodape h3 {
+    font-size: 20px;
+    padding-bottom: 17px;
+    border-bottom: rgb(255, 255, 255) 1px solid;
+}
+
+.rodape p {
+    margin-top: 17px;
+}
+
+.caixa form input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: rgb(255, 255, 255) 1px solid;
+    padding: 7px;
+    border-radius: 10px;
+    color: #6e0b0b;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.caixa form input::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.caixa .botao {
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.copy {
+    text-align: center;
+    padding-bottom: 50px;
+}
