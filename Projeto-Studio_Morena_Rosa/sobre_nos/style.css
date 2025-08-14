@@ -1,0 +1,212 @@
+/*cabeçalho*/
+body {
+    background: url(https://images.adsttc.com/media/images/6013/8f21/f91c/8125/1500/02d6/newsletter/Roby_Salao_Beleza-3803.jpg?1611894553);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    backdrop-filter: blur(4px);
+    background-position: fixed;
+    background-attachment: fixed;
+}
+
+header{
+    position: relative;
+    padding: 0 20px;
+    background-color: rgb(214, 172, 130);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cabecalho{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+.cabecalho .links{
+    display: flex;
+    gap: 150px;
+}
+
+.cabecalho .nome a{
+    color: brown;
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.links a{
+    text-decoration: none;
+    color: brown;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+/*conteudo*/
+.centraliza{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid rgb(194, 151, 107);
+    border-radius: 15px;
+    background-color: rgb(255, 241, 226);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 75%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 24px;
+}
+
+.centraliza .sobre {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    text-align: center;
+    margin: 50px auto;
+    font-weight: normal;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+}
+
+.equipe {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 120px;
+    margin-bottom: 30px;
+    border: 3px solid rgb(194, 151, 107);
+    border-radius: 500px;
+    background-color: rgb(255, 241, 226);
+    padding-top: 5px;
+    width: 70%;
+}
+
+.equipe .esquerda{
+    border-radius: 500px;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.quadroesq{
+    text-align: center;
+    margin-right: 60px;
+}
+
+.equipe .direita{
+    border-radius: 500px;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.quadrodir{
+    text-align: center;
+    margin-left: 60px;
+}
+
+.titulo {
+    color:brown;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.paragrafo{
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+/*rodapé*/
+footer {
+    background-color: rgb(214, 172, 130);
+    color: brown;
+}
+
+footer h2{
+    color:brown;
+    text-align: center;
+    font-size: 35px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 45px;
+    padding-bottom: 20px;
+}
+
+.rodape h3 {
+    font-size: 20px;
+    padding-bottom: 17px;
+    border-bottom: brown 1px solid;
+}
+
+.rodape p {
+    margin-top: 17px;
+}
+
+.caixa form input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: brown 1px solid;
+    padding: 7px;
+    border-radius: 10px;
+    color: white;
+    margin: 5px;
+}
+
+.caixa form input::placeholder {
+    color: brown;
+}
+
+.caixa .botao {
+    background-color: brown;
+    cursor: pointer;
+}
+
+.avaliacoes img {
+    border-radius: 5px;
+}
+
+.avaliacoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.copy {
+    text-align: center;
+    padding-bottom: 50px;
+}

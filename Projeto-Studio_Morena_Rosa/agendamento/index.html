@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="cabecalho">
+            <h1 class="nome"><a href="../home/index.html">Studio Morena Rosa</a></h1>
+            <ul class="links">
+                <li><a href="../sobre_nos/index.html">SOBRE NÓS</a></li>
+                <li><a href="../agendamento/index.html">AGENDAMENTO</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="principal">
+            <section class="informacoes-gerais">
+                <div style="margin-bottom: 6%; font-size: 18px;">
+                    <h2 style="margin-bottom: 4%;">CONTATE-NOS</h2>
+                    <p style="font-size: 20px">Agende um serviço via formulário ou telefone</p>
+                </div>
+
+                <div class="informacoes">
+                    <h3>Endereço</h3>
+                    <div style="margin-left: 15%;">
+                        <p>Avenida Senador Roberto Símonsen, 550 - Santo Antônio</p>
+                        <p>CEP 09530-401 - São Caetano do Sul - SP</p>
+                    </div>
+                </div>
+
+                <div class="informacoes">
+                    <h3>Horas</h3>
+                    <div style="margin-left: 21%;">
+                        <p>Segunda a sábado: 9h-20h</p>
+                    </div>
+                </div>
+
+                <div class="informacoes">
+                    <h3>Contatos</h3>
+                    <p style="margin-left: 15%;">(11)4002-8922 | (11)12345-6789</p>
+                </div>
+
+                <div class="localizacao">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.618537622188!2d-46.57740472387966!3d-23.618009878761022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5c94a7880655%3A0x9a9170f361d45c2f!2sAv.%20Sen.%20Roberto%20S%C3%ADmonsen%2C%20550%20-%20Santo%20Ant%C3%B4nio%2C%20S%C3%A3o%20Caetano%20do%20Sul%20-%20SP%2C%2009530-401!5e0!3m2!1spt-BR!2sbr!4v1744802957900!5m2!1spt-BR!2sbr"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+            <section class="cadastro">
+                <form>
+                    <div class="grupo-form">
+                        <div class="input-container">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome">
+                        </div>
+
+                        <div class="input-container">
+                            <label for="sobrenome">Sobrenome:</label>
+                            <input type="text" id="sobrenome" name="sobrenome">
+                        </div>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="Telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="servico">Serviço que você está interessado:</label>
+                        <input type="text" id="servico" name="servico">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="data">Data e Hora:</label>
+                        <input type="datetime-local" id="data" name="data">
+                    </div>
+                    
+                    <button type="submit">Agendar</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="rodape">
+            <div class="contato">
+                <h3>ENTRE EM CONTATO</h3>
+                <p>(11)4002-8922 | (11)12345-6789</p>
+            </div>
+
+            <div class="endereco">
+                <h3>NOSSO ENDEREÇO</h3>
+                <p>Avenida Senador Roberto Símonsen, 550 - Santo Antônio <br>CEP 09530-401 - São Caetano do Sul - SP</p>
+            </div>
+
+            <div class="caixa">
+                <h3>NEWSLETTER</h3>
+                <p>Cadastre-se e receba nossas dicas e novidades</p>
+                <form>
+                    <input type="text" placeholder="Nome"><br>
+                    <input type="text" placeholder="Telefone">
+                    <input type="submit" value="OK" class="botao">
+                </form>
+            </div>
+        </div>
+
+        <h2>Nossas Avaliações</h2>
+        <div class="avaliacoes">
+            <div>
+                <img src="../home/imagem/avaliacao1.png" width="250px" height="250px">
+            </div>
+
+            <div>
+                <img src="../home/imagem/avaliacao2.png" width="250px" height="250px">
+            </div>
+
+            <div>
+                <img src="../home/imagem/avaliacao3.png" width="250px" height="250px">
+            </div>
+        </div>
+
+        <div class="copy">&copy; Direitos Reservados Studio Morena Rosa</div>
+    </footer>
+</body>
+</html>

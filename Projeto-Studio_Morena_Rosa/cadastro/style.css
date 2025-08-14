@@ -1,0 +1,190 @@
+body {
+    background: url(https://images.adsttc.com/media/images/6013/8f21/f91c/8125/1500/02d6/newsletter/Roby_Salao_Beleza-3803.jpg?1611894553);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+.links a {
+    text-decoration: none;
+    color: brown;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header {
+    position: relative;
+    padding: 0 20px;
+    background-color: rgb(214, 172, 130);
+
+}
+
+.cabecalho {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cabecalho .links {
+    display: flex;
+    gap: 150px;
+}
+
+.cabecalho .nome a {
+    color: brown;
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastro {
+    height: 600px;
+    width: 474px;
+    background-color: rgb(232, 210, 185);
+    border: rgb(194, 151, 107) 2px solid;
+    margin: 100px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-decoration: none;
+    color: rgb(165, 91, 42);
+    font-weight: bold;
+    text-align: center;
+    margin: 25px 0 15px 0;
+}
+
+.grupo-form {
+    display: flex;
+    justify-content: center;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    color: rgb(165, 91, 42);
+    font-weight: bold;
+    margin: 15px 25px;
+}
+
+.cadastro input {
+    background-color: rgb(255, 241, 226);
+    border: none;
+    outline: none;
+    border: rgb(165, 91, 42) 1px solid;
+    padding: 7px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.cadastro button {
+    background-color: rgb(175, 101, 51);
+    color: white;
+    width: 300px;
+    border: none;
+    outline: none;
+    padding: 7px;
+    border-radius: 10px;
+    margin: 15px 16.5%;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cadastro button:hover {
+    color: rgb(232, 210, 185);
+}
+
+footer {
+    background-color: rgb(214, 172, 130);
+    color: brown;
+}
+
+footer h2{
+    color:brown;
+    text-align: center;
+    font-size: 35px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 45px;
+    padding-bottom: 20px;
+}
+
+.rodape h3 {
+    font-size: 20px;
+    padding-bottom: 17px;
+    border-bottom: brown 1px solid;
+}
+
+.rodape p {
+    margin-top: 17px;
+}
+
+.caixa form input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: brown 1px solid;
+    padding: 7px;
+    border-radius: 10px;
+    color: white;
+    margin: 5px;
+}
+
+.caixa form input::placeholder {
+    color: brown;
+}
+
+.caixa .botao {
+    background-color: brown;
+    cursor: pointer;
+}
+
+.avaliacoes img {
+    border-radius: 5px;
+}
+
+.avaliacoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.copy {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+/*acabou pagina inicial

@@ -1,0 +1,223 @@
+/*cabeçalho*/
+body{
+    background-color: rgb(232, 210, 185);
+}
+
+header{
+    position: relative;
+    padding: 0 20px;
+    background-color: rgb(214, 172, 130);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cabecalho{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
+
+.cabecalho .links{
+    display: flex;
+    gap: 150px;
+}
+
+.cabecalho .nome a{
+    color: brown;
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.links a{
+    text-decoration: none;
+    color: brown;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+/*conteúdo*/
+.apresentacao{
+    width: 100%;
+}
+
+.bemvindo{
+    text-align: center;
+    margin-top: 50px;
+    width: 75%;
+    margin-left: 200px;
+}
+
+.titulo{
+    color:brown;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.paragrafo{
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.centraliza{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid rgb(194, 151, 107);
+    border-radius: 15px;
+    background-color: rgb(255, 241, 226);
+    margin: auto;
+    margin-top: 50px;
+    width: 75%;
+    padding: 30px;
+}
+
+.circulos{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 20rem;
+    border: 2px solid rgb(214, 172, 130);
+    background-color: rgb(214, 172, 130);
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.circulos a{
+    transition: transform 0.2s ease;
+    text-decoration: none;
+}
+
+.circulos a:hover{
+    transform: scale(1.1);
+}
+
+.circulos img{
+    border-radius: 500px;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.circulos figcaption{
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+.centralizainsta{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 75%;
+    padding: 30px;
+}
+
+.texto{
+    align-items: center;
+    border: 2px solid rgb(194, 151, 107);
+    border-radius: 15px;
+    background-color: rgb(255, 241, 226);
+    margin: auto;
+    width: 50%;
+    padding: 30px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.insta{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    box-shadow: 0 0 30px 10px rgba(235, 83, 83, 0.5);
+}
+
+
+
+/*rodapé*/
+footer {
+    background-color: rgb(214, 172, 130);
+    color: brown;
+}
+
+footer h2{
+    color:brown;
+    text-align: center;
+    font-size: 35px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 45px;
+    padding-bottom: 20px;
+}
+
+.rodape h3 {
+    font-size: 20px;
+    padding-bottom: 17px;
+    border-bottom: brown 1px solid;
+}
+
+.rodape p {
+    margin-top: 17px;
+}
+
+.caixa form input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: brown 1px solid;
+    padding: 7px;
+    border-radius: 10px;
+    color: white;
+    margin: 5px;
+}
+
+.caixa form input::placeholder {
+    color: brown;
+}
+
+.caixa .botao {
+    background-color: brown;
+    cursor: pointer;
+}
+
+.avaliacoes img {
+    border-radius: 5px;
+}
+
+.avaliacoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.copy {
+    text-align: center;
+    padding-bottom: 50px;
+}
